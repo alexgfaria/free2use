@@ -1,5 +1,9 @@
 $("document").ready(function(e)
 {
+	$("#iniciar").click(function(e)
+	{
+		$(".container").load("html/menu_principal.html");
+	});
 	$("#criar").click(function(e)
 	{
 		$(".container").load("html/conta/criar.html");
