@@ -1,7 +1,9 @@
 $("document").ready(function(e)
 {
+	// Ação do botão 'iniciar sessão'
 	$("#iniciar").click(function(e)
 	{
+		// São buscadas as credenciais inseridas nos campos
 		var user = $("#user").val();
 		var pass = $("#pass").val();
 
@@ -22,12 +24,18 @@ $("document").ready(function(e)
 			alert("Credenciais erradas. Tente novamente.");
 		}
 	});
+
+	// Ação do botão 'Criar conta'
 	$("#criar").click(function(e)
 	{
+		// Vai para a respetiva página		
 		$(".container").load("html/conta/criar.html");
 	});
+
+	// Ação do botão 'Esqueceu-se da palavra-passe?'
 	$("#esquecer").click(function(e)
 	{
+		// Vai para a respetiva página
 		$(".container").load("html/conta/esquecer.html");
 	});
 });
