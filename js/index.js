@@ -9,7 +9,7 @@ $("document").ready(function(e)
 		{
 			$(".container").load("html/menu_principal/aluno.html");
 		}
-		else if(user == "prof" && pass == "pass")
+		else if(user == "prof" && pass == "prof")
 		{
 			$(".container").load("html/menu_principal/prof.html");
 		}
