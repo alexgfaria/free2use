@@ -5,15 +5,15 @@ $("document").ready(function(e)
 		var user = $("#user").val();
 		var pass = $("#pass").val();
 
-		if(user == "aluno" == pass)
+		if(user == "aluno" && pass == "aluno")
 		{
 			$(".container").load("html/menu_principal/aluno.html");
 		}
-		else if(user == "prof" == pass)
+		else if(user == "prof" && pass == "pass")
 		{
 			$(".container").load("html/menu_principal/prof.html");
 		}
-		else if(user == "tecnico" == pass)
+		else if(user == "tecnico" && pass == "tecnico")
 		{
 			$(".container").load("html/menu_principal/tecnico.html");
 		}
