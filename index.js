@@ -1,0 +1,11 @@
+$("document").ready(function(e)
+{
+	$("#criar").click(function(e)
+	{
+		$(".container").load("html/conta/criar.html");
+	});
+	$("#esquecer").click(function(e)
+	{
+		$(".container").load("html/conta/esquecer.html");
+	});
+});
