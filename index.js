@@ -11,9 +11,16 @@ $("document").ready(function(e)
 {
 	goToHome();
 
-	// Ao clicar no botão 'home'
+	// Ação do botão 'home'
 	$(".glyphicon-home").click(function(e)
 	{
 		goToHome();
 	});
+
+	// Ação do botão 'logout'
+	$("#logout").click(function(e)
+	{
+		goToHome();
+	});
+
 });
