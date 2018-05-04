@@ -1,3 +1,9 @@
+// Carrega o conteúdo da página respetiva para o container
+function loadMenuPrincipal(tipo)
+{
+	$(".container").load("html/menu_principal/"+tipo+".html");
+}
+
 $("document").ready(function(e)
 {
 	// Ação do botão 'iniciar sessão'
@@ -9,33 +15,19 @@ $("document").ready(function(e)
 
 		if(user == "aluno" && pass == "aluno")
 		{
-			$(".container").load("html/menu_principal/aluno.html");
+			loadMenuPrincipal("aluno");
 		}
 		else if(user == "prof" && pass == "prof")
 		{
-			$(".container").load("html/menu_principal/prof.html");
+			loadMenuPrincipal("prof");
 		}
 		else if(user == "tecnico" && pass == "tecnico")
 		{
-			$(".container").load("html/menu_principal/tecnico.html");
+			loadMenuPrincipal("tecnico");		
 		}
 		else
 		{
 			alert("Credenciais erradas. Tente novamente.");
 		}
-	});
-
-	// Ação do botão 'Criar conta'
-	$("#criar").click(function(e)
-	{
-		// Vai para a respetiva página		
-		$(".container").load("html/conta/criar.html");
-	});
-
-	// Ação do botão 'Esqueceu-se da palavra-passe?'
-	$("#esquecer").click(function(e)
-	{
-		// Vai para a respetiva página
-		$(".container").load("html/conta/esquecer.html");
 	});
 });
