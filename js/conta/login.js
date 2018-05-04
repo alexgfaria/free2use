@@ -11,10 +11,10 @@ function loadMenuPrincipal(tipo)
 	$(".container").load("html/menu_principal/"+tipo+".html");
 
 	// O botão 'logout' torna-se visível
-	$("#logout").show();
+	show($("#logout"));
 
 	// O botão 'home' torna-se visível
-	$("#home").show();
+	show($("#home"));
 }
 
 $("document").ready(function(e)
