@@ -1,6 +1,7 @@
 // Carrega o conteúdo da página respetiva para o container
 function loadMenuPrincipal(tipo)
 {
+	$("#logout").show();
 	$(".container").load("html/menu_principal/"+tipo+".html");
 }
 
