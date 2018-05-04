@@ -1,20 +1,15 @@
 // Carrega o conteúdo da página respetiva para o container
 function loadMenuPrincipal(tipo)
 {
+	// Vai para a respetiva página principal
+	goToHome(tipo);
+
 	// Ação do botão 'home'
 	// (volta para a respetiva página principal)
 	$(".glyphicon-home").click(function(e)
 	{
 		goToHome(tipo);			
 	});
-
-	$(".container").load("html/menu_principal/"+tipo+".html");
-
-	// O botão 'logout' torna-se visível
-	show($("#logout"));
-
-	// O botão 'home' torna-se visível
-	show($("#home"));
 }
 
 $("document").ready(function(e)
