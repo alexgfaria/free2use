@@ -1,27 +1,32 @@
+function go(page)
+{
+	$(".container").load("html/tecnico/"+page+".html");
+}
+
 $("document").ready(function(e)
 {
 	// Fechar sala de estudo
 	$("#fechar").click(function(e)
 	{
-		alert("WIP-FECHAR");
+		go("fechar");
 	});
 
 	// Abrir sala de estudo
 	$("#abrir").click(function(e)
 	{
-		alert("WIP-ABRIR");
+		go("abrir");
 	});
 
 	// Adicionar sala de estudo
 	$("#adicionar").click(function(e)
 	{
-		alert("WIP-ADICIONAR");
+		go("adicionar");
 	});
 
 	// Remover sala de estudo
 	$("#remover").click(function(e)
 	{
-		alert("WIP-REMOVER");
+		go("remover");
 	});
 
 });
