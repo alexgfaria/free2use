@@ -1,4 +1,4 @@
-function goToLogin()
+/*function goToLogin()
 {
 	// O botão do 'logout' é escondido
 	hide($("#logout"));
@@ -45,3 +45,4 @@ $("document").ready(function(e)
 		goToLogin();
 	});
 });
+*/
