@@ -1,6 +1,6 @@
 function go(page)
 {
-	$(".container").load("html/tecnico/"+page+".html");
+	$("#content").load("html/tecnico/"+page+".html");
 }
 
 $("document").ready(function(e)
