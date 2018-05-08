@@ -36,5 +36,5 @@ $("document").ready(function(e)
 		goToLogin();
 	});
   scrollRevelation('.reveal');
-  $('.carousel').carousel();
+  $('.carousel').carousel(3000);
 });
