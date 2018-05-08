@@ -3,9 +3,6 @@ function goToLogin()
 	// O botão do 'logout' é escondido
 	hide($("#logout"));
 
-	// O botão do 'home' é escondido
-	hide($("#home"));
-
 	// É mostrada a página de login
 	$("#content").load("html/login.html");
 }
@@ -14,9 +11,6 @@ function goToHome(home)
 {
 	// O botão do 'logout' torna-se visível
 	show($("#logout"));
-
-	// O botão do 'home' torna-se visível
-	show($("#home"));
 
 	// Vai de volta para a página principal
 	$("#content").load("html/"+home+".html");
@@ -38,12 +32,6 @@ $("document").ready(function(e)
 {
 	// Ação do botão 'entrar'
 	$("#entrar").click(function(e)
-	{
-		goToLogin();
-	});
-
-	// Ação do botão 'logout'
-	$("#logout").click(function(e)
 	{
 		goToLogin();
 	});
