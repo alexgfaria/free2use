@@ -82,7 +82,7 @@ $("document").ready(function(e)
     }, e.p = "./", e(e.s = 0)
 }({
     "/6JT": function(t, e, n) {
-        t.exports = n.p + "assets/images/profil-03.jpg"
+        t.exports = n.p + "images/profil-03.jpg"
     },
     0: function(t, e, n) {
         t.exports = n("JkW7")
@@ -628,16 +628,16 @@ $("document").ready(function(e)
         }()
     },
     "4FPD": function(t, e, n) {
-        t.exports = n.p + "assets/apple-icon-180x180.png"
+        t.exports = n.p + "apple-icon-180x180.png"
     },
     "6wzU": function(t, e, n) {
         n("Lu+Q"), n("s51k"), n("m5Wh"), n("x66a"), n("laCn"), n("hxo1"), n("mEQU"), n("1/9l"), n("oOvE"), n("gnpq"), n("vQEO"), n("V1TA")
     },
     CIw1: function(t, e, n) {
-        t.exports = n.p + "assets/images/img-04.jpg"
+        t.exports = n.p + "images/img-04.jpg"
     },
     I1N7: function(t, e, n) {
-        t.exports = n.p + "assets/images/profil-01.jpg"
+        t.exports = n.p + "images/profil-01.jpg"
     },
     JkW7: function(t, e, n) {
         "use strict";
@@ -654,7 +654,7 @@ $("document").ready(function(e)
         })
     },
     Kz47: function(t, e, n) {
-        t.exports = n.p + "assets/images/logo-03.png"
+        t.exports = n.p + "images/logo-03.png"
     },
     "Lu+Q": function(t, e, n) {
         (function(t) {
@@ -698,20 +698,20 @@ $("document").ready(function(e)
         }).call(e, n("juYr"))
     },
     NHig: function(t, e, n) {
-        t.exports = n.p + "assets/images/wave-header.svg"
+        t.exports = n.p + "images/wave-header.svg"
     },
     NjbO: function(t, e, n) {
-        t.exports = n.p + "assets/images/img-06.jpg"
+        t.exports = n.p + "images/img-06.jpg"
     },
     PExH: function(t, e) {},
     Q9O4: function(t, e, n) {
-        t.exports = n.p + "assets/images/img-07.jpg"
+        t.exports = n.p + "images/img-07.jpg"
     },
     QGaO: function(t, e, n) {
-        t.exports = n.p + "assets/images/wave-footer.svg"
+        t.exports = n.p + "images/wave-footer.svg"
     },
     TyiG: function(t, e, n) {
-        t.exports = n.p + "assets/images/logo-02.png"
+        t.exports = n.p + "images/logo-02.png"
     },
     V1TA: function(t, e, n) {
         (function(t) {
@@ -785,7 +785,7 @@ $("document").ready(function(e)
         }).call(e, n("juYr"))
     },
     ZVF2: function(t, e, n) {
-        t.exports = n.p + "assets/images/js.png"
+        t.exports = n.p + "images/js.png"
     },
     aWFY: function(t, e, n) {
         "use strict";
@@ -4216,13 +4216,13 @@ $("document").ready(function(e)
         })
     },
     kTIx: function(t, e, n) {
-        t.exports = n.p + "assets/images/profil-02.jpg"
+        t.exports = n.p + "images/profil-02.jpg"
     },
     l3CI: function(t, e, n) {
-        t.exports = n.p + "assets/images/wave-hero-background.svg"
+        t.exports = n.p + "images/wave-hero-background.svg"
     },
     lIgk: function(t, e, n) {
-        t.exports = n.p + "assets/images/img-05.jpg"
+        t.exports = n.p + "images/img-05.jpg"
     },
     laCn: function(t, e, n) {
         (function(t) {
@@ -4306,7 +4306,7 @@ $("document").ready(function(e)
         }).call(e, n("juYr"))
     },
     lwI8: function(t, e, n) {
-        t.exports = n.p + "assets/images/logo-01.png"
+        t.exports = n.p + "images/logo-01.png"
     },
     m5Wh: function(t, e, n) {
         (function(t) {
@@ -4596,10 +4596,10 @@ $("document").ready(function(e)
         }).call(e, n("juYr"))
     },
     sDtc: function(t, e, n) {
-        t.exports = n.p + "assets/images/img-01.jpg"
+        t.exports = n.p + "images/img-01.jpg"
     },
     slZu: function(t, e, n) {
-        t.exports = n.p + "assets/images/wave-left.svg"
+        t.exports = n.p + "images/wave-left.svg"
     },
     vQEO: function(t, e, n) {
         (function(t) {
@@ -4770,6 +4770,6 @@ $("document").ready(function(e)
         }).call(e, n("juYr"))
     },
     xxxe: function(t, e, n) {
-        t.exports = n.p + "assets/images/mashup-icon.svg"
+        t.exports = n.p + "images/mashup-icon.svg"
     }
 });
