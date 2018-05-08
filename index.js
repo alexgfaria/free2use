@@ -36,17 +36,15 @@ function show(e)
 
 $("document").ready(function(e)
 {
+	// Ação do botão 'entrar'
 	$("#entrar").click(function(e)
 	{
-		$("#content").load("html/login.html");
+		goToLogin();
 	});
-
-	/*// Vai para a página de login
-	goToLogin();
 
 	// Ação do botão 'logout'
 	$("#logout").click(function(e)
 	{
 		goToLogin();
-	});*/
+	});
 });
