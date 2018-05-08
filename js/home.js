@@ -34,6 +34,7 @@ $("document").ready(function(e)
 	$("#entrar").click(function(e)
 	{
 		goToLogin();
+		$("#entrar").hide();
 	});
   $('.carousel').carousel(3000);
 });
