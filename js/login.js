@@ -38,5 +38,4 @@ $("document").ready(function(e)
 			alert("Credenciais erradas. Tente novamente.");
 		}
 	});
-	jumpToContent();
 });
