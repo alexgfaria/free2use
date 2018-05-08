@@ -36,4 +36,5 @@ $("document").ready(function(e)
 		goToLogin();
 	});
   scrollRevelation('.reveal');
+  $('.carousel').carousel();
 });
