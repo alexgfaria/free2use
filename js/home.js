@@ -37,4 +37,5 @@ $("document").ready(function(e)
 		$("#entrar").hide();
 	});
   $('.carousel').carousel(3000);
+  jumpToContent();
 });
