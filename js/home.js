@@ -35,4 +35,7 @@ $("document").ready(function(e)
 	{
 		goToLogin();
 	});
+
+	navActivePage();
+  scrollRevelation('.reveal');
 });
