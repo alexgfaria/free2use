@@ -2,6 +2,8 @@ $("document").ready(function(e)
 {
 	$("#content").load("html/home.html");
 	navbarFixedTopAnimation();
+  navActivePage();
+  scrollRevelation('.reveal');
 });
 
 /* TEMPLATE CODE */
