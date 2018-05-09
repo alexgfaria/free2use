@@ -6,7 +6,7 @@ function loadMenuPrincipal(tipo)
 
 	// Ação do botão 'home'
 	// (volta para a respetiva página principal)
-	$(".glyphicon-home").click(function(e)
+	$(".navbar-brand").click(function(e)
 	{
 		goToHome(tipo);			
 	});
