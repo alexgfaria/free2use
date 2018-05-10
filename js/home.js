@@ -4,7 +4,7 @@ function goToLogin()
 	hide($("#logout"));
 
 	// É mostrada a página de login
-	$("#content").load("html/login.html");
+	load("html/login.html");
 }
 
 function goToHome(home)
@@ -13,7 +13,7 @@ function goToHome(home)
 	show($("#logout"));
 
 	// Vai de volta para a página principal
-	$("#content").load("html/"+home+".html");
+	load("html/"+home+".html");
 }
 
 function hide(e)

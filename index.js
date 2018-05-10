@@ -1,6 +1,12 @@
+function load(path)
+{
+	$("#content").load(path);
+}
+
+
 $("document").ready(function(e)
 {
-	$("#content").load("html/home.html");
+	load("html/home.html");
 	navbarFixedTopAnimation();
   navActivePage();
 });
