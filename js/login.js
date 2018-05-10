@@ -45,7 +45,7 @@ $("document").ready(function(e)
 {
 	$("body").on("keydown",function(e) 
 	{
-    if(event.which == ENTER_KEY)
+    if(e.which == ENTER_KEY)
     {
     	checkLoginCreds();
     } 
