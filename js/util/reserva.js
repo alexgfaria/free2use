@@ -5,7 +5,7 @@ $("document").ready(function(e){
   LoadSalas(salas);
     $(".sala").click(function(e){
       selected = e.target.id;
-      LoadMenu("html/util/sala.html");
+      load("html/util/sala.html");
     });
 });
 //Recebe a "sala"
