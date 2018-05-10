@@ -4,7 +4,9 @@ function goToLogin()
 	hide($("#logout"));
 
 	// É mostrada a página de login
-	$("#content").load("html/login.html");
+	load("html/login.html");
+
+	jumpToContent();
 }
 
 function goToHome(home)
@@ -13,7 +15,7 @@ function goToHome(home)
 	show($("#logout"));
 
 	// Vai de volta para a página principal
-	$("#content").load("html/"+home+".html");
+	load("html/"+home+".html");
 }
 
 function hide(e)
@@ -36,6 +38,4 @@ $("document").ready(function(e)
 		goToLogin();
 		$("#entrar").hide();
 	});
-  $('.carousel').carousel(3000);
-  $(window).scrollTop($('#content').offset().top);
 });

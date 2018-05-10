@@ -1,6 +1,17 @@
+function load(path)
+{
+	$("#content").load(path);
+}
+
+function jumpToContent()
+{
+	$("body").scrollTop($("#content").offset().top);
+}
+
+
 $("document").ready(function(e)
 {
-	$("#content").load("html/home.html");
+	load("html/home.html");
 	navbarFixedTopAnimation();
   navActivePage();
 });
