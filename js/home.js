@@ -38,6 +38,4 @@ $("document").ready(function(e)
 		goToLogin();
 		$("#entrar").hide();
 	});
-
-  jumpToContent();
 });
