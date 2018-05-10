@@ -6,7 +6,7 @@ function goToLogin()
 	// É mostrada a página de login
 	load("html/login.html");
 
-	$("html").scrollTop($("#content").offset().top);
+	jumpToContent();
 }
 
 function goToHome(home)
@@ -38,6 +38,7 @@ $("document").ready(function(e)
 		goToLogin();
 		$("#entrar").hide();
 	});
+
   $('.carousel').carousel(3000);
-  $(window).scrollTop($('#content').offset().top);
+  jumpToContent();
 });

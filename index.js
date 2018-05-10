@@ -3,6 +3,11 @@ function load(path)
 	$("#content").load(path);
 }
 
+function jumpToContent()
+{
+	$("body").scrollTop($("#content").offset().top);
+}
+
 
 $("document").ready(function(e)
 {
