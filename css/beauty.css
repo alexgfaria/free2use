@@ -1,20 +1,3 @@
-.hidden {
-    visibility: hidden;
-}
-
-.jumbotron-bg {
-    background-image: url('../images/bg.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    color: #ffffff;
-}
-
-.align-right {
-    float: right;
-}
-
 @import url(https://fonts.googleapis.com/css?family=Hind+Siliguri:300,600|Martel:400,900);
 
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css); 
@@ -4770,7 +4753,7 @@ button.close {
 
 .background-image-container {
     text-align: center;
-    background-image: url(../images/wave-hero-background.svg)
+    background-image: url(../images/wave/wave-hero-background.svg)
 }
 
 .background-image-container,.footer-container {
@@ -4780,7 +4763,7 @@ button.close {
 }
 
 .footer-container {
-    background-image: url(../images/wave-footer.svg);
+    background-image: url(../images/wave/wave-footer.svg);
     padding: 60px 0;
     margin-top: 30px
 }
@@ -4837,7 +4820,7 @@ button.close {
     -webkit-transition: all .5s linear;
     -o-transition: all .5s linear;
     transition: all .5s linear;
-    background-image: url(../images/wave-header.svg);
+    background-image: url(../images/wave/wave-header.svg);
     background-position: 0 90%;
     background-repeat: no-repeat;
     background-size: cover;

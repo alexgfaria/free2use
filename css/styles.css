@@ -2,15 +2,6 @@
 {
 	visibility: hidden;
 }
-.jumbotron-bg
-{
-	background-image: url('../images/bg.png'); 
-	background-repeat: no-repeat; 
-	background-attachment: fixed;
-  background-position: center; 
-  background-size:cover; 
-  color: #ffffff;
-}
 .align-right
 {
 	float: right;
