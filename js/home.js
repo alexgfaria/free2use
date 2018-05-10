@@ -5,6 +5,8 @@ function goToLogin()
 
 	// É mostrada a página de login
 	load("html/login.html");
+
+	$("html").scrollTop($("#content").offset().top);
 }
 
 function goToHome(home)
