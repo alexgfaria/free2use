@@ -1,6 +1,11 @@
+const ENTER_KEY = 13;
+
 // Carrega o conteúdo da página respetiva para o container
 function loadMenuPrincipal(tipo)
 {
+	// Desativa o evento para o pressionar do ENTER
+	$("body").unbind("keydown");
+
 	// Vai para a respetiva página principal
 	goToHome(tipo);
 
@@ -40,12 +45,12 @@ $("document").ready(function(e)
 {
 	$("body").on("keydown",function(e) 
 	{
-    if(event.which == 13)
+    if(event.which == ENTER_KEY)
     {
-    	alert("Entered!");
+    	checkLoginCreds();
     } 
   });
-  
+
 	// Ação do botão 'iniciar sessão'
 	$("#iniciar").click(function(e)
 	{
