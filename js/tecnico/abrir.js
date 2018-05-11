@@ -32,8 +32,8 @@ jQuery.fn.filterByText = function(textbox) {
   });
 };
 
-// You could use it like this:
 
 $(function() {
   $('select').filterByText($('input'));
 });
+
