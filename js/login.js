@@ -25,7 +25,7 @@ function checkLoginCreds()
 
 	var success = false;
 
-	credenciais.forEach(c,function(e)
+	credenciais.forEach(function(c)
 	{
 		if(c["user"] == user && c["pass"] == pass)
 		{
