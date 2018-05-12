@@ -23,19 +23,18 @@ function checkLoginCreds()
 	var user = $("#user").val();
 	var pass = $("#pass").val();
 
-	if(user == "aluno" && pass == "aluno")
+	var success = false;
+
+	credenciais.forEach(c,function(e)
 	{
-		loadMenuPrincipal("aluno");
-	}
-	else if(user == "prof" && pass == "prof")
-	{
-		loadMenuPrincipal("prof");
-	}
-	else if(user == "tecnico" && pass == "tecnico")
-	{
-		loadMenuPrincipal("tecnico");		
-	}
-	else
+		if(c["user"] == user && c["pass"] == pass)
+		{
+			loadMenuPrincipal(c["tipo"]);
+			success = true; 
+		}
+	});
+
+	if(!success)
 	{
 		alert("Credenciais erradas. Tente novamente.");
 	}

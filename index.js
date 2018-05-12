@@ -1,3 +1,27 @@
+const credenciais =
+[
+	{
+		"user":"2002002",
+		"pass":"aluno",
+		"tipo":"aluno"
+	},
+	{
+		"user":"3003003",
+		"pass":"aluno",
+		"tipo":"aluno"
+	},
+	{
+		"user":"prof",
+		"pass":"prof",
+		"tipo":"prof"
+	},
+	{
+		"user":"tecnico",
+		"pass":"tecnico",
+		"tipo":"tecnico"
+	}
+];
+
 function load(path)
 {
 	$("#content").load(path);
