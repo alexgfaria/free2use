@@ -22,6 +22,25 @@ const credenciais =
 	}
 ];
 
+var salas =
+[
+	{
+		"nome":"sala1",
+		"andar":1,
+		"nr_slots":10
+	},
+	{
+		"nome":"sala0",
+		"andar":0,
+		"nr_slots":8
+	},
+	{
+		"nome":"sala3",
+		"andar":3,
+		"nr_slots":11
+	}
+];
+
 var reservas =
 {
 	"aluno":
