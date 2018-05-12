@@ -5,7 +5,7 @@ function load(path)
 
 function jumpToContent()
 {
-	$("body").scrollTop($("#content").offset().top);
+	$("body").scrollTop($("#content").offset().top - 50);
 }
 
 
