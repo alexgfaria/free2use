@@ -22,6 +22,18 @@ const credenciais =
 	}
 ];
 
+var reservas =
+{
+	"aluno":
+	[
+        {"sala":"sala1", "begin":"11:00", "end":"12:00", "slot": [0,1]}
+	],
+	"prof":
+	[
+        {"sala":"sala3", "begin":"11:00", "end":"12:00", "slot": [1,2]}
+	]
+};
+
 function load(path)
 {
 	$("#content").load(path);
