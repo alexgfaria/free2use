@@ -27,17 +27,20 @@ var salas =
 	{
 		"nome":"sala1",
 		"andar":1,
-		"nr_slots":10
+		"nr_slots":10,
+		"fechada":false
 	},
 	{
 		"nome":"sala0",
 		"andar":0,
-		"nr_slots":8
+		"nr_slots":8,
+		"fechada":false
 	},
 	{
 		"nome":"sala3",
 		"andar":3,
-		"nr_slots":11
+		"nr_slots":11,
+		"fechada":false
 	}
 ];
 
