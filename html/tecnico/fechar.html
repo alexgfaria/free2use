@@ -8,29 +8,30 @@
 	        				<label><font size="10">Selecione a sala:</font></h4>
 	        			</div>
 	        		</div>
-	        		<div class="form-group row">
-	        			<div class="col-lg">
-	        				<input style="height:80px;width:380px" type="text" class="form-control">
-	        			</div>
-	        		</div>
- 	 		<div class="form-group row">
-					<select style="height:80px;width:380px">
- 	 		         <option value="Sala 1"> <center> Sala 1 </center></option>
- 	 		         <option value="Sala 2"><center> Sala 2 </center></option>
- 	 		         <option value="Sala 3"><center> Sala 3 </center></option>
- 	 		         <option value="Anfiteatro 1"><center> Anfiteatro 1 </center></option>
- 	 		         <option value="Laboratorio"><center> Núcleo </center></option>
+
+  	 		<div class="form-group row">
+					<select id="selectfechar" style="height:80px;width:380px">
+ 	 		        
 					</select>
 	 		 </div>
-	 		 <div class="form-group row">
-				<Button type="button" class="btn btn-basic btn-lg" id="action" style="height:80px;width:380px" >Fechar</Button>
+ 		 <div class="form-group row">
+				<Button type="button" class="btn btn-basic btn-lg" id="fechar" style="height:80px;width:380px" >Fechar</Button>
 			</div>   
 	        </center>
 	    </div>
 	  </div>
 	</center>
 	</body>
-	<script src="js/tecnico/abrir.js"></script>
-	<script src="js/tecnico/adicionar.js"></script>
+	<script src="js/tecnico/opconcluida.js"></script>
+	<script>
+		$(document).ready(function(){
+			salas.forEach(function(s)
+			{
+				if(!s["fechada"]){
+   					$('select').append("<option>"+s["nome"]+"</option>")
+				}
+			});
+		})
+	</script>
 </html>
 	

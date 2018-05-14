@@ -24,4 +24,9 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"remover"+".html");
 	});
 
+	$("#alterar").click(function(e)
+	{
+		load("html/tecnico/"+"alterar"+".html");
+	});
+
 });
