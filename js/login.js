@@ -29,14 +29,32 @@ function checkLoginCreds()
 	{
 		if(c["user"] == user && c["pass"] == pass)
 		{
-			loadMenuPrincipal(c["tipo"]);
 			success = true; 
+			loadMenuPrincipal(c["tipo"]);
+			alertCancelations(c["tipo"]);
 		}
 	});
 
 	if(!success)
 	{
 		alert("Credenciais erradas. Tente novamente.");
+	}
+}
+
+function alertCancelations(tipo)
+{
+	switch(alertas[tipo])
+	{
+		case PROF:
+			alert("Uma ou mais reservas foram canceladas devido a uma reserva sobreposta por um docente.");
+			break;
+		case TECNICO:
+			alert("Uma ou mais reservas foram canceladas devido à indisponibilidade de uma sala.");
+			break;
+		case NONE:
+		default:
+			break;
+		alert("Uma ou mais reservas foram canceladas ");
 	}
 }
 

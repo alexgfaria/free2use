@@ -88,6 +88,15 @@ var alertas =
 	"prof":false
 }
 
+const NONE = -1;
+const PROF = 1;
+const TECNICO = 2;
+var alertas =
+{
+	"aluno":NONE,
+	"prof":NONE
+};
+
 function load(path)
 {
 	$("#content").load(path);
