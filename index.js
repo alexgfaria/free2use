@@ -49,7 +49,8 @@ var reservas =
 	"aluno":
 	[
         {
-        	"sala":"sala1", 
+        	"sala":"sala1",
+        	"data":"01-06-2018",
         	"begin":"11:00", 
         	"end":"12:00", 
         	"slot": [0,1]
@@ -59,6 +60,7 @@ var reservas =
 	[
         {
         	"sala":"sala3", 
+        	"data":"02-06-2018",
         	"begin":"11:00", 
         	"end":"12:00", 
         	"slot": [1,2]
