@@ -59,7 +59,6 @@ function alertCancelations(tipo)
 		case NONE:
 		default:
 			break;
-		alert("Uma ou mais reservas foram canceladas ");
 	}
 }
 
