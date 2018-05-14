@@ -25,19 +25,19 @@ const credenciais =
 var salas =
 [
 	{
-		"nome":"sala1",
+		"nome":"Sala 1",
 		"andar":1,
 		"nr_slots":10,
 		"fechada":false
 	},
 	{
-		"nome":"sala0",
+		"nome":"Sala 2",
 		"andar":0,
 		"nr_slots":8,
 		"fechada":false
 	},
 	{
-		"nome":"sala3",
+		"nome":"Núcleo",
 		"andar":3,
 		"nr_slots":11,
 		"fechada":false
@@ -49,17 +49,23 @@ var reservas =
 	"aluno":
 	[
         {
-        	"sala":"sala1",
+        	"sala":"Sala 1",
         	"data":"01-06-2018",
         	"begin":"11:00", 
         	"end":"12:00", 
         	"slot": [0,1]
-        }
+        },
+				{
+					"sala":"Sala 2",
+					"begin":"11:00",
+					"end":"12:00",
+					"slot": [2,4]
+				}
 	],
 	"prof":
 	[
         {
-        	"sala":"sala3", 
+        	"sala":"Núcleo", 
         	"data":"02-06-2018",
         	"begin":"11:00", 
         	"end":"12:00", 
