@@ -99,7 +99,7 @@ function load(path)
 
 function jumpToContent()
 {
-	$("body").scrollTop($("#content").offset().top - 50);
+	$("body").scrollTop($("#content").offset().top - $("#content").outerHeight()/2);
 }
 
 
