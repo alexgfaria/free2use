@@ -8,13 +8,8 @@
 	        				<label><font size="10">Selecione a sala:</font></h4>
 	        			</div>
 	        		</div>
-	        		<div class="form-group row">
-	        			<div class="col-lg">
-	        				<input style="height:80px;width:380px" type="text" class="form-control">
-	        			</div>
-	        		</div>
  	 		<div class="form-group row">
-					<select style="height:80px;width:380px">
+					<select id="selectabrir" style="height:80px;width:380px">
  	 		        
 					</select>
 	 		 </div>
@@ -25,14 +20,17 @@
 	    </div>
 	</center>
 	</body>
-	<script src="js/tecnico/abrir.js"></script>
-	<script src="js/tecnico/opconcluida.js">
-		var opcoes = salasfechadas;
-		var selectBox = document.getElementsByTagName('select');
-		for(var i = 0, l = opcoes.length; i < l; i++){
-  		var opcao = opcoes[i];
-  		selectBox.add( opcoes[i].nome );
-		}
+	<!--<script src="js/tecnico/abrir.js"></script>-->
+	<script src="js/tecnico/opconcluida.js"></script>
+	<script>
+		$(document).ready(function(){
+			salas.forEach(function(s)
+			{
+				if(s["fechada"]){
+   					$('select').append("<option>"+s["nome"]+"</option>")
+				}
+			});
+		})
 	</script>
 </html>
 	

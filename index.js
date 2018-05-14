@@ -28,7 +28,7 @@ var salas =
 		"nome":"sala1",
 		"andar":1,
 		"nr_slots":10,
-		"fechada":false
+		"fechada":true
 	},
 	{
 		"nome":"sala0",

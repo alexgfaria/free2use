@@ -1,0 +1,47 @@
+<html>
+	<body>
+		<h1><center>Alterar Capacidade</center></h1>
+	    <div class="container">
+	        <center>
+	        <div class="form-group row">
+	        	<div class="col-lg">
+	        			<label><font size="10">Selecione a sala:</font></h4>
+	        	</div>
+	       	</div>
+
+ 	 		<div class="form-group row">
+					<select id="selectalterar" style="height:80px;width:380px">
+ 	 		        
+					</select>
+	 		 </div>
+
+	        <div class="form-group row">
+	        	<div class="col-lg">
+	        			<label><font size="10">Nova capacidade :</font></h4>
+	        	</div>
+	       	</div>
+	        <div class="form-group row">
+	        	<div class="col-lg">
+	        			<input id="capacidade" style="height:80px;width:380px" type="number" class="form-control">
+	        	</div>
+	        </div>
+
+	 		<div class="form-group row">
+						<Button type="button" class="btn btn-basic btn-lg" id="alterar" style="height:80px;width:380px" >Alterar</Button>
+			</div>   
+	        </center>
+	    </div>
+	  </div>
+	</center>
+	</body>
+	<script src="js/tecnico/opconcluida.js"></script>
+	<script>
+		$(document).ready(function(){
+			salas.forEach(function(s)
+			{	
+   			$('select').append("<option>"+s["nome"]+"</option>")
+			});
+		})
+	</script>
+
+</html>
