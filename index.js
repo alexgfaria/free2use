@@ -25,19 +25,19 @@ const credenciais =
 var salas =
 [
 	{
-		"nome":"sala1",
+		"nome":"Sala 1",
 		"andar":1,
 		"nr_slots":10,
 		"fechada":true
 	},
 	{
-		"nome":"sala0",
+		"nome":"Sala 2",
 		"andar":0,
 		"nr_slots":8,
 		"fechada":false
 	},
 	{
-		"nome":"sala3",
+		"nome":"Núcleo",
 		"andar":3,
 		"nr_slots":11,
 		"fechada":false
@@ -49,13 +49,14 @@ var reservas =
 	"aluno":
 	[
         {
-        	"sala":"sala1",
-        	"begin":"11:00",
-        	"end":"12:00",
+        	"sala":"Sala 1",
+        	"data":"01-06-2018",
+        	"begin":"11:00", 
+        	"end":"12:00", 
         	"slot": [0,1]
         },
 				{
-					"sala":"sala1",
+					"sala":"Sala 2",
 					"begin":"11:00",
 					"end":"12:00",
 					"slot": [2,4]
@@ -64,12 +65,31 @@ var reservas =
 	"prof":
 	[
         {
-        	"sala":"sala3",
-        	"begin":"11:00",
-        	"end":"12:00",
+        	"sala":"Núcleo", 
+        	"data":"02-06-2018",
+        	"begin":"11:00", 
+        	"end":"12:00", 
         	"slot": [1,2]
         }
+	],
+	"tecnico":
+	[
+				{
+					"sala":"sala1",
+					"begin":"11:00",
+					"end":"12:00",
+					"slot": [5,6]
+				}
 	]
+};
+
+const NONE = -1;
+const PROF = 1;
+const TECNICO = 2;
+var alertas =
+{
+	"aluno":NONE,
+	"prof":NONE
 };
 
 function load(path)
