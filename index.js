@@ -127,7 +127,7 @@ function load(path)
 
 function jumpToContent()
 {
-	$("body").scrollTop($("#content").offset().top - $("#content").outerHeight()/2);
+	$("body").scrollTop($("#content").offset().top + $("#content").outerHeight()/2);
 }
 
 
