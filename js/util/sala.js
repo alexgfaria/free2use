@@ -1,6 +1,6 @@
 var salaSelected;//Sala que foi selacionada
 var nr_slots_ocupados = [];//Lugares ocupados de uma sala
-var aluno;
+var tecnico;
 $("#document").ready(function(e){
 
   $("#titulo").append("Escolha um lugar na "+selected);
@@ -9,10 +9,13 @@ $("#document").ready(function(e){
   findSala(selected);//encontra a sala selacionada
 
   LoadMesas();
+  getAllMesasOcupadasTecnico();
+  removeMesasOcupadas();
   $("#submit").click(function(e){
 
     var quantidade_lugares = salaSelected["nr_slots"];
-    getAllMesasOcupadas();
+
+
     //Verifica as opções que foram selacionadas
     for(var i = 0;i <= quantidade_lugares; i++){
       var selected_option = $('#'+i).is(":checked");
@@ -46,8 +49,8 @@ function LoadMesas(){
    $("#lista_Lugares").append('<Button type="button" class="sala btn btn-success btn-lg" id="submit">'+"Reservar"+'</Button>');
 
 }
-
-function getAllMesasOcupadas(){
+/*
+function getAllMesasOcupadasAluno(){
   var id = salaSelected["nome"];
   for (var i = 0; i < reservas["aluno"].length; i++) {
     aluno = reservas["aluno"][i];
@@ -55,6 +58,29 @@ function getAllMesasOcupadas(){
       nr_slots_ocupados.push(aluno["slot"]);
     }
   }
+}*/
+
+function getAllMesasOcupadasTecnico(){
+  var id = salaSelected["tecnico"];
+  for (var i = 0; i < reservas["tecnico"].length; i++) {
+    tecnico = reservas["tecnico"][i];
+    if(tecnico["tecnico"] == id){
+      nr_slots_ocupados.push(tecnico["slot"]);
+    }
+  }
+}
+
+function removeMesasOcupadas(){
+  var conjunto_mesa;
+  for(var i = 0; i<nr_slots_ocupados.length; i++){
+    conjunto_mesa = nr_slots_ocupados[i];
+    for(var j = 0; j<conjunto_mesa.length;j++){
+      $("#"+conjunto_mesa[j]).attr("disabled","true");
+    }
+  }
+}
+function setNotificaAluno(){
+  alertas["aluno"] = true;
 }
 function existeReservaMesa(mesaId){//Recebe um id da mesa é verifica se já existe alguma reserva
   //para essa mesa

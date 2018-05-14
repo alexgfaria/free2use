@@ -71,8 +71,22 @@ var reservas =
         	"end":"12:00", 
         	"slot": [1,2]
         }
+	],
+	"tecnico":
+	[
+				{
+					"sala":"sala1",
+					"begin":"11:00",
+					"end":"12:00",
+					"slot": [5,6]
+				}
 	]
 };
+var alertas =
+{
+	"aluno":false,
+	"prof":false
+}
 
 const NONE = -1;
 const PROF = 1;
