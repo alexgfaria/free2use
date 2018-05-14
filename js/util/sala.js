@@ -1,23 +1,68 @@
-var salas = ["true", "false", "true","false","false"];
+var salaSelected;//Sala que foi selacionada
+var nr_slots_ocupados = [];//Lugares ocupados de uma sala
+var aluno;
 $("#document").ready(function(e){
-  $("#titulo").append("Escolha um lugar na sala "+selected);
-  LoadMesas(salas);
 
+  $("#titulo").append("Escolha um lugar na "+selected);
+
+
+  findSala(selected);//encontra a sala selacionada
+
+  LoadMesas();
   $("#submit").click(function(e){
-    var size = salas.length;
-    for(var i = 0;i <= size; i++){
+
+    var quantidade_lugares = salaSelected["nr_slots"];
+    getAllMesasOcupadas();
+    //Verifica as opções que foram selacionadas
+    for(var i = 0;i <= quantidade_lugares; i++){
       var selected_option = $('#'+i).is(":checked");
-      
+      if(selected_option){//Se a opção foi selacionda verfica se existe conflito
+        if(existeReservaMesa(i)){
+          alert("Já existe reserva");
+        }
+      }
     }
+
   });
 });
 
-function LoadMesas(salas){
-   var size = salas.length;
+function findSala(selected){
+  for (var i = 0; i < salas.length; i++) {
+    if(salas[i]["nome"] == selected){
+      salaSelected = salas[i];
+
+    }
+  }
+}
+
+function LoadMesas(){
+   var size = salaSelected["nr_slots"];
    for(var i = 0;i <= size; i++){
      //$("#lista_Lugares").append(i);
-     $("#lista_Lugares").append("<div class='checkbox'>"+"<label> <input type='checkbox' id ="+i+">"+
-     i+"</label>"+"</div>");
+
+     $("#lista_Lugares").append("<div class='checkbox'>"+"<label> <input type='checkbox' id ='"+i+"'>"+
+     "Lugar   " +i+"</label>"+"</div>");
    }
    $("#lista_Lugares").append('<Button type="button" class="sala btn btn-success btn-lg" id="submit">'+"Reservar"+'</Button>');
+
+}
+
+function getAllMesasOcupadas(){
+  var id = salaSelected["nome"];
+  for (var i = 0; i < reservas["aluno"].length; i++) {
+    aluno = reservas["aluno"][i];
+    if(aluno["sala"] == id){
+      nr_slots_ocupados.push(aluno["slot"]);
+    }
+  }
+}
+function existeReservaMesa(mesaId){//Recebe um id da mesa é verifica se já existe alguma reserva
+  //para essa mesa
+  for (var i = 0; i < nr_slots_ocupados.length; i++) {
+    if(nr_slots_ocupados[i].includes(mesaId)){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

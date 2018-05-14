@@ -1,3 +1,77 @@
+const credenciais =
+[
+	{
+		"user":"2002002",
+		"pass":"aluno",
+		"tipo":"aluno"
+	},
+	{
+		"user":"3003003",
+		"pass":"aluno",
+		"tipo":"aluno"
+	},
+	{
+		"user":"prof",
+		"pass":"prof",
+		"tipo":"prof"
+	},
+	{
+		"user":"tecnico",
+		"pass":"tecnico",
+		"tipo":"tecnico"
+	}
+];
+
+var salas =
+[
+	{
+		"nome":"sala1",
+		"andar":1,
+		"nr_slots":10,
+		"fechada":false
+	},
+	{
+		"nome":"sala0",
+		"andar":0,
+		"nr_slots":8,
+		"fechada":false
+	},
+	{
+		"nome":"sala3",
+		"andar":3,
+		"nr_slots":11,
+		"fechada":false
+	}
+];
+
+var reservas =
+{
+	"aluno":
+	[
+        {
+        	"sala":"sala1",
+        	"begin":"11:00",
+        	"end":"12:00",
+        	"slot": [0,1]
+        },
+				{
+					"sala":"sala1",
+					"begin":"11:00",
+					"end":"12:00",
+					"slot": [2,4]
+				}
+	],
+	"prof":
+	[
+        {
+        	"sala":"sala3",
+        	"begin":"11:00",
+        	"end":"12:00",
+        	"slot": [1,2]
+        }
+	]
+};
+
 function load(path)
 {
 	$("#content").load(path);
@@ -5,7 +79,7 @@ function load(path)
 
 function jumpToContent()
 {
-	$("body").scrollTop($("#content").offset().top);
+	$("body").scrollTop($("#content").offset().top - 50);
 }
 
 
