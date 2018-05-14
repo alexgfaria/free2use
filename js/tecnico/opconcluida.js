@@ -143,13 +143,12 @@ function removereservas(room, slots){
 			if(tamanhoslots==0){
 					reservas["aluno"].splice(i,1);
 					i--;
-					tamanhoprof--;			
+					tamanhoaluno--;			
 					alertas["aluno"]=TECNICO;		
 			}
 		}
 	}
 
-	tamanhoslots=0;
 	for (i = 0; i < tamanhoprof; i++) {
     	if(reservas["prof"][i]["sala"]==room){
 			tamanhoslots=reservas["prof"][i]["slot"].length;
