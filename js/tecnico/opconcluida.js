@@ -7,7 +7,6 @@ $("document").ready(function(e)
 	{
 		var room = document.getElementById("selectabrir").value;
 		var i=0;
-		$(document).ready(function(){
 			salas.forEach(function(s)
 			{
 				if(s["nome"]==room&&s["fechada"]){
@@ -15,7 +14,6 @@ $("document").ready(function(e)
 				}
 				i++;
 			});
-		})
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
@@ -39,7 +37,6 @@ $("document").ready(function(e)
 	{
 		var room = document.getElementById("selectfechar").value;
 		var i=0;
-		$(document).ready(function(){
 			salas.forEach(function(s)
 			{
 				if(s["nome"]==room&&!s["fechada"]){
@@ -48,8 +45,7 @@ $("document").ready(function(e)
 				}
 				i++;
 			});
-		})
-
+		//alert(numeroreservas(room));
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
@@ -57,22 +53,9 @@ $("document").ready(function(e)
 	{
 		var room = document.getElementById("selectalterar").value;
 		var nslots = document.getElementById("capacidade").value;
-		var reservasremovidas= -nslots;
-		//reservasremovidas = lugaresantes-lugaresdps
 
-		$(document).ready(function(){
-			salas.forEach(function(s)
-			{
-				if(s["nome"]==room){
-					reservasremovidas=numeroreservas(room)-s["nr_slots"];
-					s["nr_slots"]= nslots;
-					if(reservasremovidas>0){ //quer dizer que se perderam lugares
-						removereservas(room, reservasremovidas);
-					}
-				}
-			});
+		removereservas(room, nslots);
 
-		})
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
@@ -80,17 +63,16 @@ $("document").ready(function(e)
 	{
 		var room = document.getElementById("selectremover").value;
 		var i=0;
-		$(document).ready(function(){
 			salas.forEach(function(s)
 			{
 				if(s["nome"]==room){
 					salas.splice(i,1);
+					i--;
 					removetodasreservas(room);
 				}
 				i++;
 			});
-		})
-
+	
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
@@ -110,90 +92,87 @@ $("document").ready(function(e)
 
 
 function removetodasreservas(room){
+	
 	var i=0;
-	reservas["aluno"].forEach(function(s)
-			{
-				if(s["sala"]==room){
-					alert(s["sala"]+" - "+s["data"]);
-					reservas["aluno"].splice(i,1);	
+	var tamanhoaluno=reservas["aluno"].length;
+	for (i = 0; i < tamanhoaluno; i++) {
+		//alert(reservas["aluno"][i]["sala"]+" - "+reservas["aluno"][i]["data"]);
+    	if(reservas["aluno"][i]["sala"]==room){
+ 					//alert(reservas["aluno"][i]["sala"]+" - "+reservas["aluno"][i]["data"]+" - eliminar");   		
+					reservas["aluno"].splice(i,1);
+					i--;
+					tamanhoaluno--;				
 					alertas["aluno"]=TECNICO;				
-				}
-				i++;
-			});
-	i=0;
-	reservas["prof"].forEach(function(s)
-			{
-				if(s["sala"]==room){
-					alert(s["sala"]+" - "+s["data"]);
+		}
+	}
+
+	var tamanhoprof=reservas["prof"].length;
+	for (i = 0; i < tamanhoprof; i++) {
+		//alert(reservas["prof"][i]["sala"]+" - "+reservas["prof"][i]["data"]);
+    	if(reservas["prof"][i]["sala"]==room){
+ 					//alert(reservas["prof"][i]["sala"]+" - "+reservas["prof"][i]["data"]+" - eliminar");   		
 					reservas["prof"].splice(i,1);
-					alertas["prof"]=TECNICO;								
-				}
-				i++;
-			});
-	i=0;
-}
-
-//n - numero de lugares a remover
-function removereservas(room, n){
-	var i=0;
-
-	for (i = 0; i < reservas["aluno"].length; i++) {
-    	if(reservas["aluno"][i]["sala"]==room&&n>0){
-    				n--;
-					reservas["aluno"].splice(i,1);					
-					alertas["aluno"]=TECNICO;				
-		}
-		if(n==0) break;
-	}
-
-	for (i = 0; i < reservas["prof"].length; i++) {
-    	if(reservas["prof"][i]["sala"]==room&&n>0){
-    				n--;
-					reservas["prof"].splice(i,1);					
+					i--;
+					tamanhoprof--;			
 					alertas["prof"]=TECNICO;				
 		}
-		if(n==0) break;
 	}
-
 }
-function numeroreservas(room){
-	var conta=0;
+
+
+function removereservas(room, slots){
+	
 	var i=0;
-	for (i = 0; i < reservas["aluno"].length; i++) {
-    	if(reservas["aluno"][i]["sala"]==room&&){
-			conta++;			
+	var j=0;
+	var tamanhoslots=0;
+	var tamanhoaluno=reservas["aluno"].length;
+	var tamanhoprof=reservas["prof"].length;
+
+
+	for (i = 0; i < tamanhoaluno; i++) {
+    	if(reservas["aluno"][i]["sala"]==room){
+			tamanhoslots=reservas["aluno"][i]["slot"].length;
+			for (j = 0; j < tamanhoslots; j++) {
+    			if(reservas["aluno"][i]["slot"][j]>=slots){
+					reservas["aluno"][i]["slot"].splice(j,1);
+					j--;
+					tamanhoslots--;				
+					alertas["aluno"]=TECNICO;
+				}
+			}
+			if(tamanhoslots==0){
+					reservas["aluno"].splice(i,1);
+					i--;
+					tamanhoprof--;			
+					alertas["aluno"]=TECNICO;		
+			}
 		}
 	}
 
-	for (i = 0; i < reservas["prof"].length; i++) {
-    	if(reservas["prof"][i]["sala"]==room&&){
-    		conta++;			
+	tamanhoslots=0;
+	for (i = 0; i < tamanhoprof; i++) {
+    	if(reservas["prof"][i]["sala"]==room){
+			tamanhoslots=reservas["prof"][i]["slot"].length;
+			for (j = 0; j < tamanhoslots; j++) {
+    			if(reservas["prof"][i]["slot"][j]>=slots){
+					reservas["prof"][i]["slot"].splice(j,1);
+					j--;
+					tamanhoslots--;				
+					alertas["prof"]=TECNICO;
+				}
+			}
+			if(tamanhoslots==0){
+					reservas["prof"].splice(i,1);
+					i--;
+					tamanhoprof--;			
+					alertas["prof"]=TECNICO;		
+			}
 		}
 	}
-	return conta;
 }
 
-	/*reservas["aluno"].forEach(function(s)
-			{
-				
-				i++;
-			});
-	i=0;
-	reservas["prof"].forEach(function(s)
-			{
-				if(s["sala"]==room&&n>0){
-					reservas["prof"].splice(i,1);										
-					alertas["prof"]=TECNICO;				
-				}
-				i++;
-			});
-	i=0;
-	reservas["tecnico"].forEach(function(s)
-			{
-				if(s["sala"]==room&&n>0){
-					reservas["tecnico"].splice(i,1);										
-								
-				}
-				i++;					
-			});
-	*/
+
+
+
+
+	
