@@ -80,7 +80,9 @@ function removeMesasOcupadas(){
   }
 }
 function setNotificaAluno(){
-  alertas["aluno"] = true;
+  if(nr_slots_ocupados>0){
+    alertas["aluno"] = PROF;
+  }
 }
 function existeReservaMesa(mesaId){//Recebe um id da mesa é verifica se já existe alguma reserva
   //para essa mesa
