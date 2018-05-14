@@ -82,11 +82,6 @@ var reservas =
 				}
 	]
 };
-var alertas =
-{
-	"aluno":false,
-	"prof":false
-}
 
 const NONE = -1;
 const PROF = 1;
