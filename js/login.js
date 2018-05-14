@@ -46,19 +46,22 @@ function checkLoginCreds()
 
 function alertCancelations(tipo)
 {
-	switch(alertas[tipo])
+	if(tipo != "tecnico")
 	{
-		case PROF:
-			alert("Uma ou mais reservas foram canceladas devido a uma reserva sobreposta por um docente.");
-			alertas[tipo] = NONE;
-			break;
-		case TECNICO:
-			alert("Uma ou mais reservas foram canceladas devido à indisponibilidade de uma sala.");
-			alertas[tipo] = NONE;
-			break;
-		case NONE:
-		default:
-			break;
+		switch(alertas[tipo])
+		{
+			case PROF:
+				alert("Uma ou mais reservas foram canceladas devido a uma reserva sobreposta por um docente.");
+				alertas[tipo] = NONE;
+				break;
+			case TECNICO:
+				alert("Uma ou mais reservas foram canceladas devido à indisponibilidade de uma sala.");
+				alertas[tipo] = NONE;
+				break;
+			case NONE:
+			default:
+				break;
+		}
 	}
 }
 
