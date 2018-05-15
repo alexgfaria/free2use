@@ -8,8 +8,9 @@ var nr_slots_index = [];
 var nr_slots_apagar = [];
 var slotProf = [];
 var dataP;
-$("#document").ready(function(e){
+$("document").ready(function(e){
 
+  $("#lista_Lugares").empty();
   $("#lista_Lugares").append("<h3>Lista de lugares - "+selected+"</h3>");
 
 
@@ -46,6 +47,7 @@ $("#document").ready(function(e){
     for (var i = 0; i < size; i++) {
       console.log(nr_slots_apagar[i]);
       removeReserva(nr_slots_apagar[i]);//Caso exista conflito remove a reserva do aluno
+      setNotificaAluno();
     }
 
     addReservaProf(selected,$("#data").val(),$("#begin").val(),$("#end").val(),slotProf);
@@ -57,6 +59,7 @@ $("#document").ready(function(e){
 //Função responsavel do display
 function LoadMesas(){
    var size = salaSelected["nr_slots"];
+   $("#lista_Lugares").empty();
    for(var i = 0;i <= size; i++){
 
      $("#lista_Lugares").append("<div class='checkbox'>"+"<label> <input type='checkbox' id ='"+i+"'>"+
@@ -95,10 +98,4 @@ function removeMesasOcupadasCheckBox(){
       $("#"+conjunto_mesa[j]).attr("disabled","true");
     }
   }
-}
-
-function setNotificaAluno(){
-
-    alertas["aluno"] = PROF;
-
 }

@@ -1,4 +1,5 @@
-$("#document").ready(function(e){
+$("document").ready(function(e){
+	$("#reservas").empty();
   for (var i = 0; i < reservas["prof"].length; i++) {
     var prof = reservas["prof"][i];
     $("#reservas").append("<h3>Reserva "+i+"</h3>");

@@ -16,6 +16,7 @@ $("document").ready(function(e)
   }
   for (var i = 0; i < nr_slots_apagar.length; i++) {
     removeReserva(nr_slots_apagar[i]);//Caso exista conflito remove a reserva do aluno
+    setNotificaAluno();
   }
   for (var i = 0; i < salaSelected["nr_slots"]; i++) {
     profSlot.push(i);

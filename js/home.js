@@ -28,4 +28,11 @@ $("document").ready(function(e)
 		goToLogin();
 		$("#entrar").hide();
 	});
+
+	$("#logout").click(function(e)
+	{
+		load("html/home.html");
+		hide($("#logout"));
+		$("#entrar").show();
+	});
 });

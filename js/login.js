@@ -1,5 +1,3 @@
-const ENTER_KEY = 13;
-
 // Carrega o conteúdo da página respetiva para o container
 function loadMenuPrincipal(tipo)
 {
@@ -34,7 +32,7 @@ function checkLoginCreds()
 			setTimeout(function()
 			{
 				alertCancelations(c["tipo"]);
-			},500);
+			},1000);
 		}
 	});
 
@@ -69,7 +67,7 @@ $("document").ready(function(e)
 {
 	$("body").on("keydown",function(e) 
 	{
-    if(e.which == ENTER_KEY)
+    if(e.which == 13)
     {
     	checkLoginCreds();
     } 
