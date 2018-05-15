@@ -3,7 +3,7 @@
 $("document").ready(function(e)
 {
 
-	$("#abrir").click(function(e)
+	$("#abrir").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectabrir").value;
 		var i=0;
@@ -17,7 +17,7 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
-	$("#adicionar").click(function(e)
+	$("#adicionar").off("click").click(function(e)
 	{
 		var nome= document.getElementById('nome').value;
 		var andar = document.getElementById('andar').value;
@@ -33,7 +33,7 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 	
-	$("#fechar").click(function(e)
+	$("#fechar").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectfechar").value;
 		var i=0;
@@ -49,7 +49,7 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
-	$("#alterar").click(function(e)
+	$("#alterar").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectalterar").value;
 		var nslots = document.getElementById("capacidade").value;
@@ -59,7 +59,7 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
-	$("#remover").click(function(e)
+	$("#remover").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectremover").value;
 		var i=0;
@@ -82,7 +82,7 @@ $("document").ready(function(e)
 
 $("document").ready(function(e)
 {
-	$("#hometec").click(function(e)
+	$("#hometec").off("click").click(function(e)
 	{
 
 		load("html/"+"tecnico"+".html");

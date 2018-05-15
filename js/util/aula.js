@@ -6,7 +6,7 @@ var dataP;
 $("document").ready(function(e){
 
   LoadSalas(salas);
-  $(".sala").click(function(e){
+  $(".sala").off("click").click(function(e){
     selected = e.target.id;
     beginP = $("#begin").val();
     endP = $("#end").val();

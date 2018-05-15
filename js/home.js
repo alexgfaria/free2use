@@ -23,13 +23,13 @@ function goToHome(home)
 $("document").ready(function(e)
 {
 	// Ação do botão 'entrar'
-	$("#entrar").click(function(e)
+	$("#entrar").off("click").click(function(e)
 	{
 		goToLogin();
 		$("#entrar").hide();
 	});
 
-	$("#logout").click(function(e)
+	$("#logout").off("click").click(function(e)
 	{
 		load("html/home.html");
 		hide($("#logout"));
