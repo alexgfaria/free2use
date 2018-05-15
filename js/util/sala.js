@@ -5,7 +5,8 @@ var tecnico;
 var aluno;
 var reservas_sala_aluno = [];
 var nr_slots_index = [];
-
+var nr_slots_apagar = [];
+var slotProf = [];
 var dataP;
 $("#document").ready(function(e){
 
@@ -13,39 +14,50 @@ $("#document").ready(function(e){
 
 
   findSala(selected);//encontra a sala selacionada
-  getAllMesasOcupadasAluno();
-  LoadMesas();
+  getAllReservasAluno();//encontra todas as reservas na naquela determinda sala
+  LoadMesas();//Display das mesas
   $("#submit").click(function(e){
 
     var quantidade_lugares = salaSelected["nr_slots"];
-    dataP = $("#data").val();
-
+    dataP = $("#data").val();//Set da data do professor para a reserva
 
     //Verifica as opções que foram selacionadas
     for(var i = 0;i <= quantidade_lugares; i++){
 
       var selected_option = $('#'+i).is(":checked");
       if(selected_option){//Se a opção foi selacionda verfica se existe conflito
-        for (var j = 0; j < reservas_sala_aluno.length; j++){
-          console.log(nr_slots_index+existeReservaMesa(i,dataP,j)+"o index do nr_slots"+j);
-        if(existeReservaMesa(i,dataP,j)){
+        //Para todas as reservas da determnda sala,verifica se existe conflito nas horas das reservas
+        var tamanho = reservas_sala_aluno.length;
 
-          removeReserva(nr_slots_index[j]);
-          setNotificaAluno();
+        for (var j = 0; j < tamanho; j++){
+          console.log(j+""+i);
+          if(existeReservaMesa(j,dataP,i)){
+            if(!nr_slots_apagar.includes(nr_slots_index[j])){
+              nr_slots_apagar.push(nr_slots_index[j]);
+            }
+          }
+        }
+        if(!slotProf.includes(i)){
+          slotProf.push(i);
         }
       }
-      }
     }
+    var size  = nr_slots_apagar.length;
+    for (var i = 0; i < size; i++) {
+      console.log(nr_slots_apagar[i]);
+      removeReserva(nr_slots_apagar[i]);//Caso exista conflito remove a reserva do aluno
+    }
+
+    addReservaProf(selected,$("#data").val(),$("#begin").val(),$("#end").val(),slotProf);
     load("html/util/comfirma_reserva.html");
   });
 });
 
 
-
+//Função responsavel do display
 function LoadMesas(){
    var size = salaSelected["nr_slots"];
    for(var i = 0;i <= size; i++){
-     //$("#lista_Lugares").append(i);
 
      $("#lista_Lugares").append("<div class='checkbox'>"+"<label> <input type='checkbox' id ='"+i+"'>"+
      "Lugar   " +i+"</label>"+"</div>");

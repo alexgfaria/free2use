@@ -12,6 +12,7 @@ $("document").ready(function(e)
     load("html/util/visualizarReserva.html");
   });
 });
+//Função responsavel pelo display das salas
 function LoadSalas(salas){
   var numeroDeSala = salas.length;
   for (var i = 0; i < numeroDeSala; i++) {
@@ -19,6 +20,7 @@ function LoadSalas(salas){
     $("#listaSalas").append('<Button type="button" class="sala btn btn-success btn-lg" id="'+salas[i]["nome"]+'">'+salas[i]["nome"]+'</Button>');
   }
 }
+//Função que encontra o valor da sala
 function findSala(selected){
   for (var i = 0; i < salas.length; i++) {
     if(salas[i]["nome"] == selected){
@@ -27,7 +29,8 @@ function findSala(selected){
     }
   }
 }
-function getAllMesasOcupadasAluno(){
+
+function getAllReservasAluno(){
   var id = salaSelected["nome"];
 
   for (var i = 0; i < reservas["aluno"].length; i++) {
@@ -48,20 +51,20 @@ function removeReserva(index){//Remove todas as reservas
 
   //nr_slots_index = [];
 }
-function remove1nr_slots_index(){
-  for (var j = 0; j < nr_slots_index.length; j++) {
-    nr_slots_index[j]--;
+function remove1nr_slots_index(size){
+  for (var j = 0; j < nr_slots_apagar.length; j++) {
+    nr_slots_apagar[j]--;
   }
 }
-function existeReservaMesa(mesaId,dataP,i){//Recebe um id da mesa é verifica se já existe alguma reserva
-  //para essa mesa
+function existeReservaMesa(index_reserva,dataP,mesaId){//Recebe um id da mesa é verifica se já existe alguma reserva
+  //para essa mesa i = index do reservas da mesma sala
+//  console.log(mesaId,dataP,i);
+    var dataA = reservas["aluno"][index_reserva]["data"];
 
-      var dataA = reservas_sala_aluno[i]["data"];
     if(dataA == dataP){
-    if(reservas_sala_aluno[i]["slot"].includes(mesaId)){
-
-      var beginA = reservas_sala_aluno[i]["begin"];
-      var endA = reservas_sala_aluno[i]["end"];
+    if(reservas_sala_aluno[index_reserva]["slot"].includes(mesaId)){
+      var beginA = reservas_sala_aluno[index_reserva]["begin"];
+      var endA = reservas_sala_aluno[index_reserva]["end"];
       var beginP = $("#begin").val();
       var endP = $("#end").val();
       if((beginA < beginP) && (endA >= beginP )){
@@ -103,4 +106,14 @@ function existeReservaMesaAula(dataP,i){//Recebe um id da mesa é verifica se j�
     return false;
   }
 
+}
+function addReservaProf(sala,data,begin,end,slot){
+  var prof = reservas["prof"];
+  prof.push({
+    "sala:":sala,
+    "data":data,
+    "begin":begin,
+    "end":end,
+    "slot":slot
+  });
 }
