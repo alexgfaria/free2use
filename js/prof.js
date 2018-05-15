@@ -110,7 +110,7 @@ function existeReservaMesaAula(dataP,i){//Recebe um id da mesa √© verifica se j√
 function addReservaProf(sala,data,begin,end,slot){
   var prof = reservas["prof"];
   prof.push({
-    "sala:":sala,
+    "sala":sala,
     "data":data,
     "begin":begin,
     "end":end,
