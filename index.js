@@ -105,14 +105,31 @@ var alertas =
 	"prof":NONE
 };
 
+function hide(e)
+{
+	// O elemento é escondido
+	if(!e.hasClass("hidden")) e.addClass("hidden");
+}
+
+function show(e)
+{
+	// O elemento torna-se visível
+	if(e.hasClass("hidden")) e.removeClass("hidden");
+}
+
 function load(path)
 {
 	$("#content").load(path);
+	var isSubpasta = (path.split("/").length - 1) >= 2;
+	if(isSubpasta)
+	{
+		show($("#goback"));
+	}
 }
 
 function jumpToContent()
 {
-	$(window).scrollTop($("#content").offset().top - 50);
+	$(window).scrollTop($("#content").offset().top - 120);
 }
 
 
