@@ -50,44 +50,45 @@ var reservas =
 	[
         {
         	"sala":"Sala 1",
-        	"data":"01-06-2018",
-        	"begin":"11:00", 
-        	"end":"12:00", 
+        	"data":"2018-06-01",
+        	"begin":"11:00",
+        	"end":"12:00",
         	"slot": [0,1]
         },
 				{
 					"sala":"Sala 2",
-					"begin":"11:00",
-					"end":"12:00",
+					"data":"2018-06-01",
+					"begin":"13:00",
+					"end":"15:00",
 					"slot": [2,4]
+				},
+				{
+					"sala":"Sala 1",
+					"data":"2018-06-01",
+					"begin":"14:00",
+					"end":"15:00",
+					"slot": [2,4]
+				},
+				{
+					"sala":"Sala 1",
+					"data":"2018-06-01",
+					"begin":"10:30",
+					"end":"15:00",
+					"slot": [0,4]
 				}
+
 	],
 	"prof":
 	[
         {
-        	"sala":"Núcleo", 
-        	"data":"02-06-2018",
-        	"begin":"11:00", 
-        	"end":"12:00", 
+        	"sala":"Núcleo",
+        	"data":"2018-06-02",
+        	"begin":"11:00",
+        	"end":"12:00",
         	"slot": [1,2]
         }
-	],
-	"tecnico":
-	[
-				{
-					"sala":"sala1",
-					"begin":"11:00",
-					"end":"12:00",
-					"slot": [5,6]
-				}
 	]
 };
-var alertas =
-{
-	"aluno":false,
-	"prof":false
-}
-
 const NONE = -1;
 const PROF = 1;
 const TECNICO = 2;

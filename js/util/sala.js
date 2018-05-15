@@ -1,42 +1,45 @@
 var salaSelected;//Sala que foi selacionada
-var nr_slots_ocupados = [];//Lugares ocupados de uma sala
+var nr_slots_ocupadosTec = [];//Lugares ocupados de uma sala
 var tecnico;
+
+var aluno;
+var reservas_sala_aluno = [];
+var nr_slots_index = [];
+
+var dataP;
 $("#document").ready(function(e){
 
   $("#titulo").append("Escolha um lugar na "+selected);
 
 
   findSala(selected);//encontra a sala selacionada
-
+  getAllMesasOcupadasAluno();
   LoadMesas();
-  getAllMesasOcupadasTecnico();
-  removeMesasOcupadas();
   $("#submit").click(function(e){
 
     var quantidade_lugares = salaSelected["nr_slots"];
+    dataP = $("#data").val();
 
 
     //Verifica as opções que foram selacionadas
     for(var i = 0;i <= quantidade_lugares; i++){
+
       var selected_option = $('#'+i).is(":checked");
       if(selected_option){//Se a opção foi selacionda verfica se existe conflito
-        if(existeReservaMesa(i)){
-          alert("Já existe reserva");
+        for (var j = 0; j < reservas_sala_aluno.length; j++){
+        if(existeReservaMesa(i,dataP,j)){
+
+          removeReserva(nr_slots_index[i]);
+          setNotificaAluno();
         }
       }
+      }
     }
-
+    load("html/util/comfirma_reserva.html");
   });
 });
 
-function findSala(selected){
-  for (var i = 0; i < salas.length; i++) {
-    if(salas[i]["nome"] == selected){
-      salaSelected = salas[i];
 
-    }
-  }
-}
 
 function LoadMesas(){
    var size = salaSelected["nr_slots"];
@@ -45,52 +48,37 @@ function LoadMesas(){
 
      $("#lista_Lugares").append("<div class='checkbox'>"+"<label> <input type='checkbox' id ='"+i+"'>"+
      "Lugar   " +i+"</label>"+"</div>");
+
    }
-   $("#lista_Lugares").append('<Button type="button" class="sala btn btn-success btn-lg" id="submit">'+"Reservar"+'</Button>');
+    $("#lista_Lugares").append("<br> <input id='begin' type='text'> <br> <input id='end' type='text'><br> <input id='data' type='date'><br>");
+    $("#lista_Lugares").append('<Button type="button" class="sala btn btn-success btn-lg" id="submit">'+"Reservar"+'</Button>');
 
 }
-/*
-function getAllMesasOcupadasAluno(){
-  var id = salaSelected["nome"];
-  for (var i = 0; i < reservas["aluno"].length; i++) {
-    aluno = reservas["aluno"][i];
-    if(aluno["sala"] == id){
-      nr_slots_ocupados.push(aluno["slot"]);
-    }
-  }
-}*/
+
+
 
 function getAllMesasOcupadasTecnico(){
   var id = salaSelected["tecnico"];
   for (var i = 0; i < reservas["tecnico"].length; i++) {
     tecnico = reservas["tecnico"][i];
     if(tecnico["tecnico"] == id){
-      nr_slots_ocupados.push(tecnico["slot"]);
+      nr_slots_ocupadosTec.push(tecnico["slot"]);
     }
   }
 }
 
-function removeMesasOcupadas(){
+function removeMesasOcupadasCheckBox(){
   var conjunto_mesa;
-  for(var i = 0; i<nr_slots_ocupados.length; i++){
+  for(var i = 0; i<nr_slots_ocupadosTec.length; i++){
     conjunto_mesa = nr_slots_ocupados[i];
     for(var j = 0; j<conjunto_mesa.length;j++){
       $("#"+conjunto_mesa[j]).attr("disabled","true");
     }
   }
 }
+
 function setNotificaAluno(){
-  if(nr_slots_ocupados>0){
+
     alertas["aluno"] = PROF;
-  }
-}
-function existeReservaMesa(mesaId){//Recebe um id da mesa é verifica se já existe alguma reserva
-  //para essa mesa
-  for (var i = 0; i < nr_slots_ocupados.length; i++) {
-    if(nr_slots_ocupados[i].includes(mesaId)){
-      return true;
-    }else{
-      return false;
-    }
-  }
+
 }
