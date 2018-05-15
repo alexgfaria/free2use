@@ -21,6 +21,11 @@ $("document").ready(function(e){
     dataP = $("#data").val();//Set da data do professor para a reserva
     beginP = $("#begin").val();
     endP = $("#end").val();
+    if($("input:checked").length === 0)
+    { 
+      alert("Preencha todos os campos e tente novamente.");
+      return;
+    }
     if(isEmpty(beginP,endP,dataP)) return;      
 
     //Verifica as opções que foram selacionadas
