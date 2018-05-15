@@ -6,6 +6,7 @@ $("document").ready(function(e)
 	$("#abrir").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectabrir").value;
+		if(isEmpty(room)) return;
 		var i=0;
 			salas.forEach(function(s)
 			{
@@ -22,7 +23,7 @@ $("document").ready(function(e)
 		var nome= document.getElementById('nome').value;
 		var andar = document.getElementById('andar').value;
 		var nr_slots = document.getElementById('lugares').value;
-		
+		if(isEmpty(nome,andar,nr_slots)) return;
 		salas.push({
              "nome": nome,
 			 "andar": andar,
@@ -36,6 +37,7 @@ $("document").ready(function(e)
 	$("#fechar").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectfechar").value;
+		if(isEmpty(room)) return;		
 		var i=0;
 			salas.forEach(function(s)
 			{
@@ -53,7 +55,7 @@ $("document").ready(function(e)
 	{
 		var room = document.getElementById("selectalterar").value;
 		var nslots = document.getElementById("capacidade").value;
-
+		if(isEmpty(room,nslots)) return;
 		removereservas(room, nslots);
 
 		load("html/tecnico/"+"opconcluida"+".html");
@@ -62,6 +64,7 @@ $("document").ready(function(e)
 	$("#remover").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectremover").value;
+		if(isEmpty(room)) return;		
 		var i=0;
 			salas.forEach(function(s)
 			{

@@ -11,6 +11,7 @@ $("document").ready(function(e){
     beginP = $("#begin").val();
     endP = $("#end").val();
     dataP = $("#data").val();
+		if(isEmpty(beginP,endP,dataP)) return;    
 
     load("html/util/reservaAula.html");
   });

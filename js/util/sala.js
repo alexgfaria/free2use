@@ -19,6 +19,9 @@ $("document").ready(function(e){
 
     var quantidade_lugares = salaSelected["nr_slots"];
     dataP = $("#data").val();//Set da data do professor para a reserva
+    beginP = $("#begin").val();
+    endP = $("#end").val();
+    if(isEmpty(beginP,endP,dataP)) return;      
 
     //Verifica as opções que foram selacionadas
     for(var i = 0;i <= quantidade_lugares; i++){

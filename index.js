@@ -138,6 +138,21 @@ function jumpToContent()
 	$(window).scrollTop($("#content").offset().top - 120);
 }
 
+function isEmpty()
+{
+	console.log(arguments);
+	for(var i = 0; i < arguments.length; i++)
+	{
+		if(arguments[i] === null || arguments[i] === "")
+		{
+			alert("Preencha todos os campos e tente novamente.");
+			return true;
+		}
+	}
+
+	return false;
+}
+
 
 $("document").ready(function(e)
 {
