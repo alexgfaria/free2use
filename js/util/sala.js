@@ -9,8 +9,6 @@ var nr_slots_apagar = [];
 var slotProf = [];
 var dataP;
 $("document").ready(function(e){
-
-  $("#lista_Lugares").empty();
   $("#lista_Lugares").append("<h3>Lista de lugares - "+selected+"</h3>");
 
 
@@ -59,7 +57,6 @@ $("document").ready(function(e){
 //Função responsavel do display
 function LoadMesas(){
    var size = salaSelected["nr_slots"];
-   $("#lista_Lugares").empty();
    for(var i = 0;i <= size; i++){
 
      $("#lista_Lugares").append("<div class='checkbox'>"+"<label> <input type='checkbox' id ='"+i+"'>"+
