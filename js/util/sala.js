@@ -17,7 +17,7 @@ $("document").ready(function(e){
   findSala(selected);//encontra a sala selacionada
   getAllReservasAluno();//encontra todas as reservas na naquela determinda sala
   LoadMesas();//Display das mesas
-  $("#submit").click(function(e){
+  $("#submit").off("click").click(function(e){
 
     var quantidade_lugares = salaSelected["nr_slots"];
     dataP = $("#data").val();//Set da data do professor para a reserva
