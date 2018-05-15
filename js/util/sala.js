@@ -10,7 +10,7 @@ var slotProf = [];
 var dataP;
 $("#document").ready(function(e){
 
-  $("#titulo").append("Escolha um lugar na "+selected);
+  $("#lista_Lugares").append("<h3>Lista de lugares - "+selected+"</h3>");
 
 
   findSala(selected);//encontra a sala selacionada
@@ -63,8 +63,15 @@ function LoadMesas(){
      "Lugar   " +i+"</label>"+"</div>");
 
    }
-    $("#lista_Lugares").append("<br> <input id='begin' type='text'> <br> <input id='end' type='text'><br> <input id='data' type='date'><br>");
-    $("#lista_Lugares").append('<Button type="button" class="sala btn btn-success btn-lg" id="submit">'+"Reservar"+'</Button>');
+
+    $("#lista_Lugares").append('<br><h3>Detalhes da reserva:</h3>');
+    $("#lista_Lugares").append('<label for="begin">Hora de início</label>');
+    $("#lista_Lugares").append('<input id="begin" maxlength="5" type="text" placeholder="HH:MM"><br><br>'); 
+    $("#lista_Lugares").append('<label for="end">Hora de fim</label>');   
+    $("#lista_Lugares").append('<input id="end" maxlength="5" type="text" placeholder="HH:MM"><br><br>');
+    $("#lista_Lugares").append('<label for="data">Data da reserva</label>');       
+    $("#lista_Lugares").append('<input id="data" type="date"><br><br>');
+    $("#lista_Lugares").append('<Button type="button" class="sala btn btn-success btn-lg" id="submit">'+"Confirmar reserva"+'</Button>');
 
 }
 

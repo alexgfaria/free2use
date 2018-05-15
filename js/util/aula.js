@@ -5,7 +5,6 @@ var dataA;
 var dataP;
 $("document").ready(function(e){
 
-  $("#dataHora").append("<input id='begin' type='text'> <input id='end' type='text'> <input id='data' type='date'>");
   LoadSalas(salas);
   $(".sala").click(function(e){
     selected = e.target.id;

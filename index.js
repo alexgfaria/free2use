@@ -1,3 +1,4 @@
+/* CREDENCIAIS */
 const credenciais =
 [
 	{
@@ -22,6 +23,7 @@ const credenciais =
 	}
 ];
 
+/* SALAS */
 var salas =
 [
 	{
@@ -44,6 +46,7 @@ var salas =
 	}
 ];
 
+/* RESERVAS */
 var reservas =
 {
 	"aluno":
@@ -96,9 +99,12 @@ var reservas =
 	]
 };
 
+/* Sistema de alertas (quando uma reserva é cancelada) */
+// Causas do cancelamento de reserva
 const NONE = -1;
 const PROF = 1;
 const TECNICO = 2;
+// Estados de alertas
 var alertas =
 {
 	"aluno":NONE,
