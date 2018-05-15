@@ -18,18 +18,6 @@ function goToHome(home)
 	load("html/"+home+".html");
 }
 
-function hide(e)
-{
-	// O elemento é escondido
-	if(!e.hasClass("hidden")) e.addClass("hidden");
-}
-
-function show(e)
-{
-	// O elemento torna-se visível
-	if(e.hasClass("hidden")) e.removeClass("hidden");
-}
-
 $("document").ready(function(e)
 {
 	// Ação do botão 'entrar'

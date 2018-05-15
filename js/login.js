@@ -11,7 +11,7 @@ function loadMenuPrincipal(tipo)
 
 	// Ação do botão 'home'
 	// (volta para a respetiva página principal)
-	$("#home").click(function(e)
+	$(".home").click(function(e)
 	{
 		goToHome(tipo);			
 	});
