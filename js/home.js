@@ -16,6 +16,8 @@ function goToHome(home)
 
 	// Vai de volta para a página principal
 	load("html/"+home+".html");
+
+	hide($("#goback"));
 }
 
 $("document").ready(function(e)
