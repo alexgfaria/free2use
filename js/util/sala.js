@@ -71,7 +71,7 @@ function LoadMesas(){
     $("#lista_Lugares").append('<input id="end" maxlength="5" type="text" placeholder="HH:MM"><br><br>');
     $("#lista_Lugares").append('<label for="data">Data da reserva</label>');       
     $("#lista_Lugares").append('<input id="data" type="date"><br><br>');
-    $("#lista_Lugares").append('<Button type="button" class="sala btn btn-success btn-lg" id="submit">'+"Confirmar reserva"+'</Button>');
+    $("#lista_Lugares").append('<Button type="button" style="white-space: normal;" class="sala btn btn-success btn-lg" id="submit">'+"Confirmar reserva"+'</Button>');
 
 }
 

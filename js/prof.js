@@ -16,7 +16,7 @@ $("document").ready(function(e)
 function LoadSalas(salas){
   var numeroDeSala = salas.length;
   for (var i = 0; i < numeroDeSala; i++) {
-    $("#listaSalas").append('<Button type="button" class="sala btn btn-success btn-lg" id="'+salas[i]["nome"]+'">'+salas[i]["nome"]+'</Button> ');
+    $("#listaSalas").append('<Button type="button" style="white-space: normal;" class="sala btn btn-success btn-lg" id="'+salas[i]["nome"]+'">'+salas[i]["nome"]+'</Button> ');
   }
 }
 //Função que encontra o valor da sala
