@@ -27,9 +27,10 @@ $("#document").ready(function(e){
       var selected_option = $('#'+i).is(":checked");
       if(selected_option){//Se a opção foi selacionda verfica se existe conflito
         for (var j = 0; j < reservas_sala_aluno.length; j++){
+          console.log(nr_slots_index+existeReservaMesa(i,dataP,j)+"o index do nr_slots"+j);
         if(existeReservaMesa(i,dataP,j)){
 
-          removeReserva(nr_slots_index[i]);
+          removeReserva(nr_slots_index[j]);
           setNotificaAluno();
         }
       }

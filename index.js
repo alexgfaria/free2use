@@ -51,19 +51,19 @@ var reservas =
       {
       	"sala":"Sala 1",
       	"data":"2018-06-01",
-      	"begin":"11:00",
+      	"begin":"10:00",
       	"end":"12:00",
       	"slot": [0,1]
       },
 	    {
         	"sala":"Sala 1",
         	"data":"2018-06-01",
-        	"begin":"11:00",
-        	"end":"12:00",
+        	"begin":"15:00",
+        	"end":"16:00",
         	"slot": [0,1]
         },
 	    {
-       		"sala":"Sala 1",
+       		"sala":"Sala 2",
        		"data":"2018-06-01",
        		"begin":"11:00",
     	 	"end":"12:00",
@@ -79,8 +79,8 @@ var reservas =
 	    {
        		"sala":"Sala 1",
        		"data":"2018-06-01",
-       		"begin":"11:00",
-       		"end":"12:00",
+       		"begin":"10:00",
+       		"end":"13:00",
        		"slot": [0,1]
        	}
 	],

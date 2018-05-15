@@ -56,8 +56,6 @@ function remove1nr_slots_index(){
 function existeReservaMesa(mesaId,dataP,i){//Recebe um id da mesa é verifica se já existe alguma reserva
   //para essa mesa
 
-
-
       var dataA = reservas_sala_aluno[i]["data"];
     if(dataA == dataP){
     if(reservas_sala_aluno[i]["slot"].includes(mesaId)){
