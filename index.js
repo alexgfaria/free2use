@@ -121,7 +121,6 @@ function load(path)
 {
 	$("#content").load(path);
 	var isSubpasta = (path.split("/").length - 1) >= 2;
-	console.log(isSubpasta);
 	if(isSubpasta)
 	{
 		show($("#goback"));
@@ -130,7 +129,7 @@ function load(path)
 
 function jumpToContent()
 {
-	$(window).scrollTop($("#content").offset().top - 50);
+	$(window).scrollTop($("#content").offset().top - 120);
 }
 
 
