@@ -9,11 +9,3 @@ $("document").ready(function(e){
       load("html/util/sala.html");
     });
 });
-//Recebe a "sala"
-function LoadSalas(salas){
-  var numeroDeSala = salas.length;
-  for (var i = 0; i < numeroDeSala; i++) {
-
-    $("#listaSalas").append('<Button type="button" class="sala btn btn-success btn-lg" id="'+salas[i]["nome"]+'">'+salas[i]["nome"]+'</Button>');
-  }
-}
