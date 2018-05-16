@@ -60,46 +60,56 @@ var reservas =
       	"data":"2018-06-01",
       	"begin":"10:00",
       	"end":"12:00",
-      	"slot": [0,1]
+      	"slot": [0,1],
+      	"comments": "",
+      	"alunos": [2029715,2029015]
       },
 	    {
-        	"sala":"Sala 1",
-        	"data":"2018-06-01",
-        	"begin":"15:00",
-        	"end":"16:00",
-        	"slot": [0,1]
-        },
+      	"sala":"Sala 1",
+      	"data":"2018-06-01",
+      	"begin":"15:00",
+      	"end":"16:00",
+      	"slot": [2],
+	    	"comments": "",
+	    	"alunos": [2029715]        	
+      },
 	    {
-       		"sala":"Sala 2",
-       		"data":"2018-06-01",
-       		"begin":"11:00",
-    	 	"end":"12:00",
-        	"slot": [0,1]
-       	},
+     		"sala":"Sala 2",
+     		"data":"2018-06-01",
+     		"begin":"11:00",
+  	 		"end":"12:00",
+      	"slot": [4],
+      	"comments": "",
+      	"alunos": [2029015]
+     	},
 	    {
-        	"sala":"Sala 1",
-        	"data":"2018-06-01",
-        	"begin":"11:00",
-        	"end":"12:00",
-        	"slot": [0,1]
-        },
+      	"sala":"Sala 1",
+      	"data":"2018-06-01",
+      	"begin":"11:00",
+      	"end":"12:00",
+      	"slot": [1],
+      	"comments": "",
+      	"alunos": [2029715]
+      },
 	    {
-       		"sala":"Sala 1",
-       		"data":"2018-06-01",
-       		"begin":"10:00",
-       		"end":"13:00",
-       		"slot": [0,1]
-       	}
+     		"sala":"Sala 1",
+     		"data":"2018-06-01",
+     		"begin":"10:00",
+     		"end":"13:00",
+     		"slot": [1],
+     		"comments": "",
+     		"alunos": [2030215]
+     	}
 	],
 	"prof":
 	[
-        {
-        	"sala":"Núcleo",
-        	"data":"2018-06-01",
-        	"begin":"11:00",
-        	"end":"12:00",
-        	"slot": [1,2]
-        }
+      {
+      	"sala":"Núcleo",
+      	"data":"2018-06-01",
+      	"begin":"11:00",
+      	"end":"12:00",
+      	"slot": [1,2]
+      }
 	]
 };
 
