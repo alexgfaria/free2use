@@ -1,14 +1,18 @@
+var arrayReservasInd=[];
+var arrayReservasGrupo=[];
+var arraySlotsSala2=[];
+
 /* CREDENCIAIS */
 const credenciais =
 [
 	{
-		"user":"2002002",
-		"pass":"aluno",
+		"user":"2029715",
+		"pass":"123",
 		"tipo":"aluno"
 	},
 	{
-		"user":"3003003",
-		"pass":"aluno",
+		"user":"2055616",
+		"pass":"1234",
 		"tipo":"aluno"
 	},
 	{

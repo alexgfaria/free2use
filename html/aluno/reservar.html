@@ -1,0 +1,136 @@
+<html>
+<script src="js/aluno/reservar.js"></script>
+
+</head>
+	<body>
+			<div>
+			<div style="margin-bottom:50px">
+				  <h1 id="title" style="text-align:center; margin-top:20px"></h1>
+			</div>
+
+			<div class="container"> 
+				
+				<!--MENU INICIAL DO ALUNO-->
+				<!--<div class="row">
+					<div class="col-6" style="text-align:center">
+					<label class="reservar-input-style">Número de aluno</label>
+					</div>
+
+					<div class="col-6">
+			 		<input type="text" class="form-control">
+					</div>
+				</div><br>-->
+				<center>
+				<div id="divNrAlunos" class="hidden" style="margin-bottom:50px">
+				<button id="bAddAluno" class="btn btn-primary" style="margin-bottom:20px">+ Adicionar elemento ao grupo</button><br>
+				</div>	</center>
+				
+
+				
+				<!--SELECT BOX COM OS NUMEROS DAS SALAS DE ESTUDO-->
+				<div class="row">
+					<div class="col-sm-6" style="text-align:center">
+					<label class="reservar-input-style">Sala de estudo</label>
+					</div>
+
+					<div class="col-sm-6">
+						<select class="form-control" id="selectBoxSala" name="selectBox">
+						<option value="default" hidden selected>Escolha a sala de estudo</option>
+    						<option value="0">Sala de estudo do piso 0</option>
+    						<option value="1">Sala de estudo do piso 1</option>
+    						<option value="2">Sala de estudo do piso 2</option>
+    						<option value="3">Sala de estudo do piso 3</option>
+						</select> 
+					</div>
+				</div><br>
+
+			
+				<div class="row">
+					<div class="col-sm-6" style="text-align:center">
+						<label class="reservar-input-style">Data da reserva</label> 
+					</div>
+				
+					<div class="col-sm-2">
+						<!-- SELECT BOX COM A DATA DA RESERVA-->
+						<select class="form-control" id="selectBoxAno" name="selectBox">
+						<option value="ano" hidden selected>Ano</option>
+						<option value="2018">2018</option>
+						</select> 
+					</div>
+
+					<!--<div class="col-1.2">
+						<label>/</label>
+					</div>-->
+		
+					<div class="col-sm-2">
+						<select class="form-control" id="selectBoxMes" name="selectBox">
+						<option value="mes" hidden selected>Mês</option>
+						</select>
+					</div>
+					<script>preencheSelectList("#selectBoxMes",12,true);</script>
+
+					<!--<div class="col-1.2">			
+						<label>/</label>
+					</div>-->
+
+					<div class="col-sm-2">
+						<select class="form-control" id="selectBoxDia" name="selectBox">
+						<option value="dia" hidden selected>Dia</option>
+						</select>
+					</div>
+				</div><br>
+				<script>preencheSelectList("#selectBoxDia",31,true);</script>
+
+			<div class="row">
+				<div class="col-sm-6" style="text-align:center">
+					<label class="reservar-input-style">Hora de início</label> 
+				</div>
+				
+				<div class="col-sm-3">
+					<!-- SELECT BOX COM A HORA DE INICIO DA RESERVA-->
+					<select class="form-control" id="selectBoxHoraInicio" name="selectBox">
+					<option value="horaInicio" hidden selected>Hora</option>
+					</select> 
+				</div>
+				<script>preencheSelectList("#selectBoxHoraInicio",23,false);</script>
+
+
+				<div class="col-sm-3">
+					<select class="form-control" id="selectBoxMinutosInicio" name="selectBox">
+					<option value="minutosInicio" hidden selected>Minutos</option>
+					</select>
+				</div>
+			</div><br>
+			<script>preencheSelectList("#selectBoxMinutosInicio",59,false);</script>
+
+			
+			<div class="row">
+				<div class="col-sm-6" style="text-align:center">
+					<label class="reservar-input-style">Hora de fim</label>
+				</div>
+
+				<div class="col-sm-3"> 
+					<!--SELECT BOX COM A HORA DE FIM DA RESERVA-->
+					<select class="form-control" id="selectBoxHoraFim" name="selectBox">
+					<option value="horaFim" hidden selected>Hora</option>
+					</select> 
+				</div>
+				<script>preencheSelectList("#selectBoxHoraFim",23,false);</script>
+
+
+				<div class="col-sm-3">
+					<select class="form-control" id="selectBoxMinutosFim" name="selectBox">
+					<option value="minutosFim" hidden selected>Minutos</option>	
+					</select>
+				</div>
+			</div><br>
+			<script>preencheSelectList("#selectBoxMinutosFim",59,false);</script>
+			
+
+			<center>
+			<button id="bConfReserva" type="button" class="btn btn-primary" style="margin-top:20px">Confirmar reserva</button></div><br>	
+			</center>
+		
+		</div>
+</body>
+</html>

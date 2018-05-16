@@ -1,7 +1,14 @@
-$("document").ready(function(e)
+$(document).ready(function(e)
 {
-	// ...
-	// add listeners
-	// ...
+	$("#bReservar").click(function() {
+	
+		load("html/aluno/tipoReserva.html");
+	
+	});
 
+	$("#bMinhasReservas").click(function() {
+	
+		load("html/aluno/minhasReservas.html");
+	
+	});
 });

@@ -1,3 +1,4 @@
+var nrAlunoLogin;
 // Carrega o conteúdo da página respetiva para o container
 function loadMenuPrincipal(tipo)
 {
@@ -28,6 +29,7 @@ function checkLoginCreds()
 		if(c["user"] == user && c["pass"] == pass)
 		{
 			success = true; 
+			nrAlunoLogin=user;
 			loadMenuPrincipal(c["tipo"]);
 			setTimeout(function()
 			{
