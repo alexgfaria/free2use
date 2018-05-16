@@ -34,5 +34,6 @@ $("document").ready(function(e)
 		load("html/home.html");
 		hide($("#logout"));
 		$("#entrar").show();
+		$(".home").off("click");
 	});
 });
