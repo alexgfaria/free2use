@@ -62,7 +62,8 @@ var reservas =
       	"end":"12:00",
       	"slot": [0,1],
       	"comments": "",
-      	"alunos": [2029715,2029015]
+      	"alunos": [2029715,2029015],
+      	"confirmacoes": []
       },
 	    {
       	"sala":"Sala 1",
@@ -71,7 +72,8 @@ var reservas =
       	"end":"16:00",
       	"slot": [2],
 	    	"comments": "",
-	    	"alunos": [2029715]        	
+	    	"alunos": [2029715],
+      	"confirmacoes": []	    	    	
       },
 	    {
      		"sala":"Sala 2",
@@ -80,7 +82,8 @@ var reservas =
   	 		"end":"12:00",
       	"slot": [4],
       	"comments": "",
-      	"alunos": [2029015]
+      	"alunos": [2029015],
+      	"confirmacoes": []      	
      	},
 	    {
       	"sala":"Sala 1",
@@ -89,7 +92,8 @@ var reservas =
       	"end":"12:00",
       	"slot": [1],
       	"comments": "",
-      	"alunos": [2029715]
+      	"alunos": [2029715],
+      	"confirmacoes": []      	
       },
 	    {
      		"sala":"Sala 1",
@@ -98,7 +102,8 @@ var reservas =
      		"end":"13:00",
      		"slot": [1],
      		"comments": "",
-     		"alunos": [2030215]
+     		"alunos": [2030215],
+      	"confirmacoes": []     		
      	}
 	],
 	"prof":

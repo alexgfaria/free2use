@@ -32,6 +32,7 @@ $("document").ready(function(e)
 	$("#logout").off("click").click(function(e)
 	{
 		load("html/home.html");
+		hide($("#goback"));
 		hide($("#logout"));
 		$("#entrar").show();
 		$(".home").off("click");
