@@ -23,18 +23,19 @@ function goToHome(home)
 $("document").ready(function(e)
 {
 	// Ação do botão 'entrar'
-	$("#entrar").off("click").click(function(e)
+	$("#entrar").off("click").off("click").click(function(e)
 	{
 		goToLogin();
 		$("#entrar").hide();
 	});
 
-	$("#logout").off("click").click(function(e)
+	$("#logout").off("click").off("click").click(function(e)
 	{
 		load("html/home.html");
-		hide($("#goback"));
 		hide($("#logout"));
 		$("#entrar").show();
-		$(".home").off("click");
+		hide($("#goback"));
+   	$(".home").off("click");
+
 	});
 });

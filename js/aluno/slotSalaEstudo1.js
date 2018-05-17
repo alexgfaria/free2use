@@ -3,7 +3,8 @@ var arraySlotsSelecionados=[];
 $(document).ready(function(e)
 {
 	var nrLugaresFila=8;
-	for(var i=1;i<=24;i++)
+	var nr_slots = salas[0].nr_slots;
+	for(var i=1;i<=nr_slots;i++)
 	{
 		var encontrou=false;
 		if(nrLugaresFila==0)
@@ -13,45 +14,69 @@ $(document).ready(function(e)
 		}
 		for(var j=0;j<arraySlotsSala2.length;j++)
 		{
-			if(arraySlotsSala2[j].slot==i)
+			if(arraySlotsSala2[j].slot.includes(i))
 			{
-				if(arraySlotsSala2[j].tipo==="ind")
+				if(arraySlotsSala2[j].tipo==="prof")
 				{
-					if(arrayReservasInd[arraySlotsSala2[j].pos]!=null)
-					{
-						if(!getDataAtual(arrayReservasInd[arraySlotsSala2[j].pos].date,arrayReservasInd[arraySlotsSala2[j].pos].hFim))
-						{
+						var dataEscolhida=reservas["aluno"][indiceReserva].data;
+						var hInicioEscolhida=reservas["aluno"][indiceReserva].begin;
+						var hFimEscolhida=reservas["aluno"][indiceReserva].end;
+						var pos= arraySlotsSala2[j].pos;
+						if(getDataAtual(reservas["prof"][arraySlotsSala2[j].pos].data,reservas["prof"][arraySlotsSala2[j].pos].end))
+						{//A data já passou
+							encontrou=true;
+							$("#slots").append("<button id=bSlot"+i+" class='btn btn-success bSlot' style=width:100px>Slot "+i+ "</button>");
+						}else if(!verificaColisoesDatas(dataEscolhida,hInicioEscolhida,hFimEscolhida,"prof",pos)){
+							//A data é no futuro, e verifica conlisões
 							encontrou=true;
 							$("#slots").append("<button id=bSlot"+i+" class='btn btn-danger bSlot' style=width:100px>Slot "+i+ "</button>");
 						}
-					}
+						/*if(!getDataAtual(reservas["prof"][arraySlotsSala2[j].pos].data,reservas["prof"][arraySlotsSala2[j].pos].end))
+						{
+							encontrou=true;
+							$("#slots").append("<button id=bSlot"+i+" class='btn btn-danger bSlot' style=width:100px>Slot "+i+ "</button>");
+						}*/
 				}
-				if(arraySlotsSala2[j].tipo==="grupo")
+				if(arraySlotsSala2[j].tipo==="grupo" || arraySlotsSala2[j].tipo==="ind")
 				{
-					if(arrayReservasGrupo[arraySlotsSala2[j].pos]!=null)		
-					{
-						if(!getDataAtual(arrayReservasGrupo[arraySlotsSala2[j].pos].date,arrayReservasGrupo[arraySlotsSala2[j].pos].hFim))
-						{
+						var dataEscolhida=reservas["aluno"][indiceReserva].data;
+						var hInicioEscolhida=reservas["aluno"][indiceReserva].begin;
+						var hFimEscolhida=reservas["aluno"][indiceReserva].end;
+						var pos= arraySlotsSala2[j].pos;
+
+						if(getDataAtual(reservas["aluno"][arraySlotsSala2[j].pos].data,reservas["aluno"][arraySlotsSala2[j].pos].end))
+						{//A data já passou
+							encontrou=true;
+							$("#slots").append("<button id=bSlot"+i+" class='btn btn-success bSlot' style=width:100px>Slot "+i+ "</button>");
+						}else if(!verificaColisoesDatas(dataEscolhida,hInicioEscolhida,hFimEscolhida,"aluno",pos)){
+							//A data é no futuro, e verifica conlisões
 							encontrou=true;
 							$("#slots").append("<button id=bSlot"+i+" class='btn btn-danger bSlot' style=width:100px>Slot "+i+ "</button>");
 						}
-					}
-				}		
+						/*if(!getDataAtual(reservas["aluno"][arraySlotsSala2[j].pos].data,reservas["aluno"][arraySlotsSala2[j].pos].end))
+						{
+							//if(verificaReservaProf(i))
+							//{
+							encontrou=true;
+							$("#slots").append("<button id=bSlot"+i+" class='btn btn-danger bSlot' style=width:100px>Slot "+i+ "</button>");
+							//}
+						}*/
+				}
 			}
 		}
 		if(!encontrou)
 		{
 			$("#slots").append("<button id=bSlot"+i+" class='btn btn-success bSlot' style=width:100px>Slot "+i+ "</button>");
 		}
-		if(i%4==0 && i!=8 && i!=16 && i!=24)//Para formar corredor
+		if(i%4==0 && i%8!=0)//Para formar corredor
 		{
 			$("#slots").append("<button style=width:100px;visibility:hidden>Slot "+i+ "</button>");
 		}
 		nrLugaresFila--;
-	}	
-	
-	$(".bSlot").click(function() {
-		
+	}
+
+	$(".bSlot").off("click").click(function() {
+
 		if($(this).attr("class")==="btn btn-success bSlot")
 		{
 			$(this).removeClass();
@@ -62,11 +87,11 @@ $(document).ready(function(e)
 		}
 	});
 
-	$("#bEscolherLugar").click(function(){
+	$("#bEscolherLugar").off("click").click(function(){
 
 		if(valor==="rIndividual")
 		{
-			if(arraySlotsSelecionados.length>1)
+			if(arraySlotsSelecionados.length>1 )
 			{
 				for(var i=0;i<arraySlotsSelecionados.length;i++)
 				{
@@ -76,17 +101,19 @@ $(document).ready(function(e)
 				arraySlotsSelecionados=[];
 				alert("Na reserva individual apenas pode reservar um slot.");
 			}
-			else
-			{
-				arrayReservasInd[indiceReserva].slot=arraySlotsSelecionados[0];
+			else if(arraySlotsSelecionados.length == 1){
+				reservas["aluno"][indiceReserva].slot.push(arraySlotsSelecionados[0]);
 				arraySlotsSala2.push({tipo:"ind",pos:indiceReserva,slot:arraySlotsSelecionados[0]});
 				alert("Reserva efetuada.");
 				load("html/aluno.html");
 			}
+			else{
+				alert("ES UMA BOSTA!");
+			}
 		}
 		else if(valor==="rGrupo")
 		{
-			if(arraySlotsSelecionados.length<nrElementosGrupo+1 || !verificaSlotsJuntos())
+			if(arraySlotsSelecionados.length!=nrElementosGrupo+1 || !verificaSlotsJuntos())
 			{
 				for(var i=0;i<arraySlotsSelecionados.length;i++)
 				{
@@ -100,12 +127,8 @@ $(document).ready(function(e)
 			{
 				for(var i=0;i<arraySlotsSelecionados.length;i++)
 				{
-					arrayReservasGrupo[indiceReserva].slot+=arraySlotsSelecionados[i];
+					reservas["aluno"][indiceReserva].slot.push(arraySlotsSelecionados[i]);
 					arraySlotsSala2.push({tipo:"grupo",pos:indiceReserva,slot:arraySlotsSelecionados[i]});
-					if(i<arraySlotsSelecionados.length-1)
-					{
-						arrayReservasGrupo[indiceReserva].slot+=",";
-					}
 				}
 				alert("Reserva efetuada.");
 				load("html/aluno.html");
@@ -142,7 +165,7 @@ $(document).ready(function(e)
 		{
 			mm="0"+mm;
 		}
-		var data=yyyy+"/"+mm+"/"+dd;
+		var data=yyyy+"-"+mm+"-"+dd;
 		if(dataReserva<data)
 		{
 			//alert("dataMenor");
@@ -167,7 +190,7 @@ $(document).ready(function(e)
 			//alert("dataMaior");
 			return false;
 		}
-		
+
 	}
 
 	function getTimeAtual(timeFimReserva)
@@ -175,7 +198,7 @@ $(document).ready(function(e)
 		var today=new Date();
 		var hh=today.getHours();
 		var mm=today.getMinutes();
-		
+
 		if(hh<10)
 		{
 			hh="0"+hh;
@@ -186,6 +209,54 @@ $(document).ready(function(e)
 		}
 		var time=hh+":"+mm;
 		return time;
-		//alert(time);
 	}
+
+function verificaColisoesDatas(dataEscolhida,hInicioEscolhida,hFimEscolhida,tipo,pos)
+{
+
+
+		if(reservas[tipo][pos].data === dataEscolhida)
+		{
+			if(reservas[tipo][pos].begin >= hInicioEscolhida && reservas[tipo][pos].begin <= hFimEscolhida)
+			{
+				return false;
+			}
+			if(reservas[tipo][pos].end >= hInicioEscolhida && reservas[tipo][pos].end <= hFimEscolhida)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		else
+		{
+			return true;
+		}
+
+	/*if(tipo==="ind" || tipo==="grupo")
+	{
+
+		if(reservas["aluno"][pos].data === dataEscolhida)
+		{
+			if(reservas["aluno"][pos].begin >= hInicioEscolhida && reservas["aluno"][pos].begin <= hFimEscolhida)
+			{
+				return false;
+			}
+			if(reservas["aluno"][pos].end >= hInicioEscolhida && reservas["aluno"][pos].end <= hFimEscolhida)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		else
+		{
+			return true;
+		}
+	}*/
+}
 });

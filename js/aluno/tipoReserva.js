@@ -1,7 +1,7 @@
 var valor;
 
 $(document).ready(function(){
-	$("#bTipoReserva").click(function(){
+	$("#bTipoReserva").off("click").click(function(){
 
 	valor=$("input[name='tipoReserva']:checked").val();
 	if(valor!=null)

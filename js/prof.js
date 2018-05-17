@@ -1,14 +1,14 @@
 $("document").ready(function(e)
 {
   // É executado quando é clicado na opção "Agendar dúvidas"
-  $("#duvida").off("click").click(function(e){
+  $("#duvida").off("click").off("click").click(function(e){
     load("html/util/reserva.html");
   });
   // É executado quando é clicado na opção "Aula"
-  $("#aula").off("click").click(function(e){
+  $("#aula").off("click").off("click").click(function(e){
     load("html/util/aula.html");
   });
-  $("#visualizar").off("click").click(function(e){
+  $("#visualizar").off("click").off("click").click(function(e){
     load("html/util/visualizarReserva.html");
   });
 });
@@ -108,6 +108,7 @@ function existeReservaMesaAula(dataP,i){//Recebe um id da mesa é verifica se j�
 }
 function addReservaProf(sala,data,begin,end,slot){
   var prof = reservas["prof"];
+
   prof.push({
     "sala":sala,
     "data":data,
@@ -115,6 +116,9 @@ function addReservaProf(sala,data,begin,end,slot){
     "end":end,
     "slot":slot
   });
+	var indiceProf=prof.length-1;
+	arraySlotsSala2.push({tipo:"prof",pos:indiceProf,slot:slot});
+	
 }
 
 function setNotificaAluno(){

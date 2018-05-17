@@ -3,7 +3,7 @@
 $("document").ready(function(e)
 {
 
-	$("#abrir").off("click").click(function(e)
+	$("#abrir").off("click").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectabrir").value;
 		if(isEmpty(room)) return;
@@ -18,7 +18,7 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
-	$("#adicionar").off("click").click(function(e)
+	$("#adicionar").off("click").off("click").click(function(e)
 	{
 		var nome= document.getElementById('nome').value;
 		var andar = document.getElementById('andar').value;
@@ -34,7 +34,7 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 	
-	$("#fechar").off("click").click(function(e)
+	$("#fechar").off("click").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectfechar").value;
 		if(isEmpty(room)) return;		
@@ -51,17 +51,18 @@ $("document").ready(function(e)
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
-	$("#alterar").off("click").click(function(e)
+	$("#alterar").off("click").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectalterar").value;
 		var nslots = document.getElementById("capacidade").value;
 		if(isEmpty(room,nslots)) return;
+		var sala = salas.filter((s)=>{ return s.nome==$("#selectalterar").val(); });
+		salas[salas.indexOf(sala[0])].nr_slots = nslots;
 		removereservas(room, nslots);
-
 		load("html/tecnico/"+"opconcluida"+".html");
 	});
 
-	$("#remover").off("click").click(function(e)
+	$("#remover").off("click").off("click").click(function(e)
 	{
 		var room = document.getElementById("selectremover").value;
 		if(isEmpty(room)) return;		
@@ -85,7 +86,7 @@ $("document").ready(function(e)
 
 $("document").ready(function(e)
 {
-	$("#hometec").off("click").click(function(e)
+	$("#hometec").off("click").off("click").click(function(e)
 	{
 
 		load("html/"+"tecnico"+".html");

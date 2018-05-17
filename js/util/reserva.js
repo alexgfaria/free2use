@@ -3,7 +3,7 @@ var selected = -1;
 $("document").ready(function(e){
 
   LoadSalas(salas);
-    $(".sala").off("click").click(function(e){
+    $(".sala").off("click").off("click").click(function(e){
       selected = e.target.id;
 
       load("html/util/sala.html");

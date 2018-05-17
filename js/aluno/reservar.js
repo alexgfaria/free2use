@@ -8,7 +8,7 @@ function preencheSelectList(id,nrVezes,data)
 	{
 		if(data)
 		{
-			if(i<10 && i>0)
+		if(i<10 && i>0)
 		{
 			var nr="0".concat(i);
 			$(id).append($('<option>', {value:nr, text:nr}));
@@ -33,23 +33,23 @@ function guardarReservasInd(array)
 {
 	salaEstudo=$("#selectBoxSala option:selected").text();
 
-	data=$("#selectBoxAno option:selected").text()+"/"+$("#selectBoxMes option:selected").text()+
-	"/"+$("#selectBoxDia option:selected").text();
+	data=$("#selectBoxAno option:selected").text()+"-"+$("#selectBoxMes option:selected").text()+
+	"-"+$("#selectBoxDia option:selected").text();
 
 	horaInicio=$("#selectBoxHoraInicio option:selected").text()+":"+$("#selectBoxMinutosInicio option:selected").text();
 			
 	horaFim=$("#selectBoxHoraFim option:selected").text()+":"+$("#selectBoxMinutosFim option:selected").text();
 			
-	array.push({ nrAluno: nrAlunoLogin,sala: salaEstudo, date: data, hInicio: horaInicio,hFim: horaFim,comments:"",slot:""});
-	indiceReserva=array.length-1;
+	array["aluno"].push({'sala':salaEstudo,'data':data,'begin':horaInicio,'end':horaFim,'slot':[],'comments':"",'alunos':[nrAlunoLogin],'confirmacoes':[],'tipo':"ind"});
+	indiceReserva=array.aluno.length-1;
 }
 
 function guardarReservasGrupo(array)
 {
 	salaEstudo=$("#selectBoxSala option:selected").text();
 
-	data=$("#selectBoxAno option:selected").text()+"/"+$("#selectBoxMes option:selected").text()+
-	"/"+$("#selectBoxDia option:selected").text();
+	data=$("#selectBoxAno option:selected").text()+"-"+$("#selectBoxMes option:selected").text()+
+	"-"+$("#selectBoxDia option:selected").text();
 
 	horaInicio=$("#selectBoxHoraInicio option:selected").text()+":"+$("#selectBoxMinutosInicio option:selected").text();
 			
@@ -67,14 +67,21 @@ function guardarReservasGrupo(array)
 		}
 		nrAlunos++;
 	}
-	//alert(alunoNr);
-			
-	array.push({ alunos: alunoNr, sala: salaEstudo, date: data, hInicio: horaInicio,hFim: horaFim,confirmada:"",cancelada:"",comments:"",slot:""});
-	indiceReserva=array.length-1;
-	//alert(array[0].alunos);
+	array["aluno"].push({'sala':salaEstudo,'data':data,'begin':horaInicio,'end':horaFim,'slot':[],'comments':"",'alunos':alunoNr.split(","),'confirmacoes':[],'tipo':"grupo"});	
+	indiceReserva=array.aluno.length-1;
 }
 
 $(document).ready(function(){
+
+	salas.forEach(function(s,index)
+	{
+		console.log(s);
+		if(!s.fechada)
+		{
+			$("#selectBoxSala").append("<option value="+index+">"+s.nome+"</option>");
+		}								
+	});
+						
 
 	if(valor==="rIndividual")
 	{
@@ -86,35 +93,38 @@ $(document).ready(function(){
 		$("#title").text("Reserva de grupo");
 	}
 
-	$("#bConfReserva").click(function(){
+	$("#bConfReserva").off("click").click(function(){
 	
 		if(valor==="rIndividual")
 	    	{
-			guardarReservasInd(arrayReservasInd);
-
-			//load("html/aluno.html");
-			//alert($("#selectBoxSala option:selected").text());
-			if($("#selectBoxSala option:selected").text()==="Sala de estudo do piso 1")
+			guardarReservasInd(reservas);
+			if($("#selectBoxSala option:selected").text()==="Sala 1")
 			{
 				load("html/aluno/slotSalaEstudo1.html");
+			}
+			else
+			{
+				alert("Sala indisponível");
 			}
 		}
 		else if(valor==="rGrupo")
 		{
-			guardarReservasGrupo(arrayReservasGrupo);
-			//load("html/aluno.html");	
-			if($("#selectBoxSala option:selected").text()==="Sala de estudo do piso 1")
+			guardarReservasGrupo(reservas);	
+			if($("#selectBoxSala option:selected").text()==="Sala 1")
 			{
 				load("html/aluno/slotSalaEstudo1.html");
+			}
+			else
+			{
+				alert("Sala indisponível");
 			}
 		}
 	});
 
-	$("#bAddAluno").click(function(){
+	$("#bAddAluno").off("click").click(function(){
 		
 		$("#divNrAlunos").append("<input id=alunoNr"+i+" type='text'><br>");
 		nrElementosGrupo++;
-		//alert("alunoNr"+i);
 		i++;
 	});
 });

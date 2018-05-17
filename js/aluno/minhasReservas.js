@@ -1,16 +1,17 @@
 var idCol=0;
-//var i=0;
+
 $(document).ready(function(){
 
-	for(var i=0; i < arrayReservasInd.length; i++) 
+	var indiv = reservas["aluno"].filter(function(r) {return r.tipo==="ind"});
+	for(var i=0; i < indiv.length; i++) 
 	{
-		if(arrayReservasInd[i]!=null && arrayReservasInd[i].nrAluno === nrAlunoLogin)
+		if(verificaNrLogin(indiv[i].alunos))
 		{
 			$("#reservasIndividuais").append("<div id=rowInd"+i+" class='row' style='margin-bottom:20px'></div>");
 
-			preencheReservas(arrayReservasInd,i,'Ind');
+			preencheReservas(indiv,i,'Ind');
 			
-			if(!getDataAtual(arrayReservasInd[i].date,arrayReservasInd[i].hFim))
+			if(!getDataAtual(indiv[i].data,indiv[i].end))
 			{
 				$("#rowInd"+i).append("<div id=col"+idCol+" class='col-sm-2'></div>");
 				$("#col"+idCol).append("<button id=bCancelarInd"+i+" class='btn btn-danger cancelarInd'>Cancelar</button>");
@@ -28,22 +29,23 @@ $(document).ready(function(){
 			}
 		}
 	}
-	
-	for(var j=0; j<arrayReservasGrupo.length; j++)
+
+	var grupo = reservas["aluno"].filter(function(r) { return r.tipo==="grupo" });
+	for(var j=0; j<grupo.length; j++)
 	{
-		if(arrayReservasGrupo[j]!=null && verificaNrLogin(j))
+		if(verificaNrLogin(grupo[j].alunos))
 		{
 			$("#reservasGrupo").append("<div id=rowGrupo"+j+" class='row' style='margin-bottom:20px'></div>");
 
-			preencheReservas(arrayReservasGrupo,j,'Grupo');
+			preencheReservas(grupo,j,'Grupo');
 
-			if(!getDataAtual(arrayReservasGrupo[j].date,arrayReservasGrupo[j].hFim))
+			if(!getDataAtual(grupo[j].data,grupo[j].end))
 			{
 				$("#rowGrupo"+j).append("<div id=col"+idCol+" class='col-sm-2'></div>");
 				$("#col"+idCol).append("<button id=bCancelarGrupo"+j+" class='btn btn-danger cancelarGrupo'>Cancelar</button>");
 				idCol++;
 
-				if(arrayReservasGrupo[j].confirmada.indexOf(nrAlunoLogin)<0)
+				if(grupo[j].confirmacoes.indexOf(nrAlunoLogin)<0)
 				{
 					$("#rowGrupo"+j).append("<div id=col"+idCol+" class='col-sm-1'></div>");
 					$("#col"+idCol).append("<button id=confirmar"+j+" class='btn btn-success sucesso'>Confirmar</button>");
@@ -69,15 +71,15 @@ $(document).ready(function(){
 	function preencheReservas(array,indice,tipo)
 	{
 			$("#row"+tipo+indice).append("<div id=col"+idCol+" class='col-sm-2'></div>");
-			$("#col"+idCol).append("<label id=date"+indice+">"+"Data da reserva: "+array[indice].date+"</label>");
+			$("#col"+idCol).append("<label id=date"+indice+">"+"Data da reserva: "+array[indice].data+"</label>");
 			idCol++;
-			//alert("#row"+tipo+indice);
+
 			$("#row"+tipo+indice).append("<div id=col"+idCol+" class='col-sm-2'></div>");
-			$("#col"+idCol).append("<label id=horaI"+indice+">"+"Hora de início: "+array[indice].hInicio+"</label>");
+			$("#col"+idCol).append("<label id=horaI"+indice+">"+"Hora de início: "+array[indice].begin+"</label>");
 			idCol++;
 	
 			$("#row"+tipo+indice).append("<div id=col"+idCol+" class='col-sm-2'></div>");
-			$("#col"+idCol).append("<label id=horaF"+indice+">"+"Hora de fim: "+array[indice].hFim+"</label>");
+			$("#col"+idCol).append("<label id=horaF"+indice+">"+"Hora de fim: "+array[indice].end+"</label>");
 			idCol++;
 
 			$("#row"+tipo+indice).append("<div id=col"+idCol+" class='col-sm-2'></div>");
@@ -89,13 +91,11 @@ $(document).ready(function(){
 			idCol++;
 	}
 
-	function verificaNrLogin(reservaId)
-	{
-		var nrAluno=arrayReservasGrupo[reservaId].alunos.split(",");
-		
-		for(var i=0;i<nrAluno.length;i++)
+	function verificaNrLogin(alunos)
+	{	
+		for(var i=0;i<alunos.length;i++)
 		{
-			if(nrAluno[i] === nrAlunoLogin && arrayReservasGrupo[reservaId].cancelada.indexOf(nrAlunoLogin)<0)
+			if(alunos[i] == nrAlunoLogin)
 			{
 				return true;
 			}
@@ -118,7 +118,7 @@ $(document).ready(function(){
 		{
 			mm="0"+mm;
 		}
-		var data=yyyy+"/"+mm+"/"+dd;
+		var data=yyyy+"-"+mm+"-"+dd;
 		if(dataReserva<data)
 		{
 			//alert("dataMenor");
@@ -166,56 +166,62 @@ $(document).ready(function(){
 	}
 
 
-	$("#bVoltarMenuAluno").click(function(){
+	$("#bVoltarMenuAluno").off("click").click(function(){
 		load("html/aluno.html");
 	});
 
-	$(".cancelarInd").click(function(){
+	$(".cancelarInd").off("click").click(function(){
 		var buttonName=$(this).attr('id');
 		buttonName=buttonName.substring(12,(buttonName.length));
 		$("#rowInd"+buttonName).hide();
-		delete arrayReservasInd[parseInt(buttonName)];
+		reservas["aluno"] = reservas["aluno"].filter(
+			function(r) 
+			{ return r != indiv[buttonName]; });
 	});
 
-	$(".cancelarGrupo").click(function(){
+	$(".cancelarGrupo").off("click").click(function(){
 		var buttonName=$(this).attr('id');
 		buttonName=buttonName.substring(14,(buttonName.length));
 		$("#rowGrupo"+buttonName).hide();
-		arrayReservasGrupo[buttonName].cancelada+=nrAlunoLogin+",";
+		reservas["aluno"][reservas["aluno"].indexOf(grupo[buttonName])].alunos=
+		 reservas["aluno"][reservas["aluno"].indexOf(grupo[buttonName])].alunos.filter(
+			function(nr) 
+			{ return parseInt(nr) != parseInt(nrAlunoLogin);});
 	});
 
-	$(".sucesso").click(function(){
+	$(".sucesso").off("click").click(function(){
 		var buttonName=$(this).attr('id');
 		$("#"+buttonName).hide();
 		buttonName=buttonName.substring(9,(buttonName.length));
-		arrayReservasGrupo[buttonName].confirmada+=nrAlunoLogin+",";
+		reservas["aluno"][reservas["aluno"].indexOf(grupo[buttonName])]
+			.confirmacoes.push(nrAlunoLogin);
 	});
-	$(".seeCommentGrupo").click(function(){
+	$(".seeCommentGrupo").off("click").click(function(){
 		var buttonName=$(this).attr('id');
 		buttonName=buttonName.substring(16,(buttonName.length));
-		alert(arrayReservasGrupo[buttonName].comments);
+		alert(reservas["aluno"][reservas["aluno"].indexOf(grupo[buttonName])].comments);
 	});
-	$(".seeCommentInd").click(function(){
+	$(".seeCommentInd").off("click").click(function(){
 		var buttonName=$(this).attr('id');
 		buttonName=buttonName.substring(14,(buttonName.length));
-		alert(arrayReservasInd[buttonName].comments);
+		alert(reservas["aluno"][reservas["aluno"].indexOf(indiv[buttonName])].comments);
 	});
-	$(".addCommentInd").click(function(){
+	$(".addCommentInd").off("click").click(function(){
 		var buttonName=$(this).attr('id');
 		buttonName=buttonName.substring(14,(buttonName.length));
 		var comment = prompt("Escreva o seu comentário","");
 		if (comment != null && comment != "") 
 		{
-        		arrayReservasInd[buttonName].comments+="\n"+nrAlunoLogin+":"+comment;
+			reservas["aluno"][reservas["aluno"].indexOf(indiv[buttonName])].comments+="\n"+nrAlunoLogin+":"+comment;
 		} 
 	});
-	$(".addCommentGrupo").click(function(){
+	$(".addCommentGrupo").off("click").click(function(){
 		var buttonName=$(this).attr('id');
 		buttonName=buttonName.substring(16,(buttonName.length));
 		var comment = prompt("Escreva o seu comentário","");
 		if (comment != null && comment != "") 
 		{
-        		arrayReservasGrupo[buttonName].comments+="\n"+nrAlunoLogin+":"+comment;
+			reservas["aluno"][reservas["aluno"].indexOf(grupo[buttonName])].comments+="\n"+nrAlunoLogin+":"+comment;
 		}
 			
 	});

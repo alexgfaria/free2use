@@ -1,12 +1,12 @@
 $(document).ready(function(e)
 {
-	$("#bReservar").click(function() {
+	$("#bReservar").off("click").click(function() {
 	
 		load("html/aluno/tipoReserva.html");
 	
 	});
 
-	$("#bMinhasReservas").click(function() {
+	$("#bMinhasReservas").off("click").click(function() {
 	
 		load("html/aluno/minhasReservas.html");
 	

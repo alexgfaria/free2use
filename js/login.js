@@ -10,7 +10,7 @@ function loadMenuPrincipal(tipo)
 
 	// Ação do botão 'home'
 	// (volta para a respetiva página principal)
-	$(".home").off("click").click(function(e)
+	$(".home").off("click").off("click").click(function(e)
 	{
 		goToHome(tipo);			
 	});
@@ -76,7 +76,7 @@ $("document").ready(function(e)
   });
 
 	// Ação do botão 'iniciar sessão'
-	$("#iniciar").off("click").click(function(e)
+	$("#iniciar").off("click").off("click").click(function(e)
 	{
 		checkLoginCreds();
 	});
