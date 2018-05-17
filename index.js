@@ -48,7 +48,7 @@ var reservas =
       	"data":"2018-06-01",
       	"begin":"10:00",
       	"end":"12:00",
-      	"slot": [0,1],
+      	"slot": [1,2],
       	"comments": "",
       	"alunos": [2029715,2029015],
       	"confirmacoes": [],

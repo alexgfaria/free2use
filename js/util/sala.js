@@ -85,7 +85,7 @@ function LoadMesas(){
  		}
  		nrLugaresFila--;
  	}
-  $("#lista_Lugares").append("<br><br><label style='margin-bottom:10px;border-style:solid'>Porta</label><br><br>");
+  $("#lista_Lugares").append("<br><br><label style='border-style:solid'>Porta</label><br><br>");
 
     $("#lista_Lugares").append('<br><h3>Detalhes da reserva:</h3>');
     $("#lista_Lugares").append('<label for="begin">Hora de início</label>');

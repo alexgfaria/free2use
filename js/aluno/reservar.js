@@ -123,7 +123,7 @@ $(document).ready(function(){
 
 	$("#bAddAluno").off("click").click(function(){
 		
-		$("#divNrAlunos").append("<input id=alunoNr"+i+" type='text'><br>");
+		$("#divNrAlunos").append("<br><input id=alunoNr"+i+" type='text'><br><br>");
 		nrElementosGrupo++;
 		i++;
 	});

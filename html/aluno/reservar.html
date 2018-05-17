@@ -1,25 +1,22 @@
 <html>
 <script src="js/aluno/reservar.js"></script>
 
-</head>
 	<body>
-			<div>
-			<div style="margin-bottom:50px">
-				  <h1 id="title" style="text-align:center; margin-top:20px"></h1>
-			</div>
+			<center>
+			<h1 id="title"></h1>
+			</center>
 
 			<div class="container"> 
-	
-				<center>
-				<div id="divNrAlunos" class="hidden" style="margin-bottom:50px">
-				<button id="bAddAluno" class="btn btn-primary" style="margin-bottom:20px">+ Adicionar elemento ao grupo</button><br>
-				</div>	</center>
-				
 
+				<center>
+				<h3> Detalhes da reserva: </h3>					
+				<div id="divNrAlunos" class="hidden">
+				<br><button id="bAddAluno" class="btn btn-primary">+ Adicionar elemento ao grupo</button><br><br>
+				</div>	</center>
 				
 				<!--SELECT BOX COM OS NUMEROS DAS SALAS DE ESTUDO-->
 				<div class="row">
-					<div class="col-sm-6" style="text-align:center">
+					<div class="col-sm-6">
 					<label class="reservar-input-style">Sala de estudo</label>
 					</div>
 
@@ -31,7 +28,7 @@
 
 			
 				<div class="row">
-					<div class="col-sm-6" style="text-align:center">
+					<div class="col-sm-6">
 						<label class="reservar-input-style">Data da reserva</label> 
 					</div>
 				
@@ -59,7 +56,7 @@
 				<script>preencheSelectList("#selectBoxDia",31,true);</script>
 
 			<div class="row">
-				<div class="col-sm-6" style="text-align:center">
+				<div class="col-sm-6">
 					<label class="reservar-input-style">Hora de início</label> 
 				</div>
 				
@@ -82,7 +79,7 @@
 
 			
 			<div class="row">
-				<div class="col-sm-6" style="text-align:center">
+				<div class="col-sm-6">
 					<label class="reservar-input-style">Hora de fim</label>
 				</div>
 
@@ -105,7 +102,7 @@
 			
 
 			<center>
-			<button id="bConfReserva" type="button" class="btn btn-primary" style="margin-top:20px">Confirmar reserva</button></div><br>	
+			<button id="bConfReserva" type="button" class="btn btn-primary">Confirmar reserva</button></div><br>	
 			</center>
 		
 		</div>
