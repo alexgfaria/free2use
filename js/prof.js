@@ -2,14 +2,14 @@ $("document").ready(function(e)
 {
   // É executado quando é clicado na opção "Agendar dúvidas"
   $("#duvida").off("click").off("click").click(function(e){
-    load("html/util/reserva.html");
+    load("html/prof/reserva.html");
   });
   // É executado quando é clicado na opção "Aula"
   $("#aula").off("click").off("click").click(function(e){
-    load("html/util/aula.html");
+    load("html/prof/aula.html");
   });
   $("#visualizar").off("click").off("click").click(function(e){
-    load("html/util/visualizarReserva.html");
+    load("html/prof/visualizarReserva.html");
   });
 });
 //Função responsavel pelo display das salas

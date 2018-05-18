@@ -61,7 +61,7 @@ $("document").ready(function(e){
     }
 
     addReservaProf(selected,$("#data").val(),$("#begin").val(),$("#end").val(),slotProf);
-    load("html/util/comfirma_reserva.html");
+    load("html/prof/comfirma_reserva.html");
   });
 });
 

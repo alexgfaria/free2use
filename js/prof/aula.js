@@ -13,6 +13,6 @@ $("document").ready(function(e){
     dataP = $("#data").val();
 		if(isEmpty(beginP,endP,dataP)) return;    
 
-    load("html/util/reservaAula.html");
+    load("html/prof/reservaAula.html");
   });
 });

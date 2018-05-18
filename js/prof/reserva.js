@@ -6,6 +6,6 @@ $("document").ready(function(e){
     $(".sala").off("click").off("click").click(function(e){
       selected = e.target.id;
 
-      load("html/util/sala.html");
+      load("html/prof/sala.html");
     });
 });
