@@ -108,7 +108,7 @@ $(document).ready(function(e)
 				load("html/aluno.html");
 			}
 			else{
-				alert("ES UMA BOSTA!");
+				alert("É necessário escolher um slot para concluir a reserva.");
 			}
 		}
 		else if(valor==="rGrupo")

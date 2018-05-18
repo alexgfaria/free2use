@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 	salas.forEach(function(s,index)
 	{
-		console.log(s);
+		//console.log(s);
 		if(!s.fechada)
 		{
 			$("#selectBoxSala").append("<option value="+index+">"+s.nome+"</option>");
@@ -94,9 +94,21 @@ $(document).ready(function(){
 	}
 
 	$("#bConfReserva").off("click").click(function(){
+
+		if($("#selectBoxAno option:selected").text() === "Ano" ||
+			 $("#selectBoxDia option:selected").text() === "Dia" ||
+			 $("#selectBoxMes option:selected").text() === "Mês" ||
+			 $("#selectBoxHoraInicio option:selected").text() === "Hora" ||
+			 $("#selectBoxHoraFim option:selected").text() === "Hora" ||
+			 $("#selectBoxMinutosInicio option:selected").text() === "Minutos" ||
+			 $("#selectBoxMinutosFim option:selected").text() === "Minutos")
+		{
+			alert(MSG_ERROR_FIELDS);
+			return;
+		}
 	
 		if(valor==="rIndividual")
-	    	{
+	  {
 			guardarReservasInd(reservas);
 			if($("#selectBoxSala option:selected").text()==="Sala 1")
 			{

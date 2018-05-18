@@ -41,7 +41,7 @@ $("document").ready(function(e){
         var tamanho = reservas_sala_aluno.length;
 
         for (var j = 0; j < tamanho; j++){
-          console.log(j+""+i);
+//          console.log(j+""+i);
           if(existeReservaMesa(j,dataP,i)){
             if(!nr_slots_apagar.includes(nr_slots_index[j])){
               nr_slots_apagar.push(nr_slots_index[j]);
@@ -55,7 +55,7 @@ $("document").ready(function(e){
     }
     var size  = nr_slots_apagar.length;
     for (var i = 0; i < size; i++) {
-      console.log(nr_slots_apagar[i]);
+     //console.log(nr_slots_apagar[i]);
       removeReserva(nr_slots_apagar[i]);//Caso exista conflito remove a reserva do aluno
       setNotificaAluno();
     }

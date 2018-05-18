@@ -150,14 +150,15 @@ function jumpToContent()
 	$(window).scrollTop($("#content").offset().top - 120);
 }
 
+const MSG_ERROR_FIELDS = "Preencha todos os campos e tente novamente.";
 function isEmpty()
 {
-	console.log(arguments);
+	//console.log(arguments);
 	for(var i = 0; i < arguments.length; i++)
 	{
 		if(arguments[i] === null || arguments[i] === "")
 		{
-			alert("Preencha todos os campos e tente novamente.");
+			alert(MSG_ERROR_FIELDS);
 			return true;
 		}
 	}
