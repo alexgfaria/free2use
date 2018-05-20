@@ -66,7 +66,7 @@ function existeReservaMesa(index_reserva,dataP,mesaId){//Recebe um id da mesa é
       var endA = reservas_sala_aluno[index_reserva]["end"];
       var beginP = $("#begin").val();
       var endP = $("#end").val();
-      if((beginA < beginP) && (endA >= beginP )){
+      if((beginA <= beginP) && (endA >= beginP )){
         return true;
       }else{
         if((beginA >= beginP) && (beginA <= endP)){
