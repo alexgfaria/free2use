@@ -1,6 +1,5 @@
 var arrayReservasInd=[];
 var arrayReservasGrupo=[];
-var arraySlotsSala2=[];
 
 /* CREDENCIAIS */
 const credenciais =
@@ -35,6 +34,18 @@ var salas =
 		"andar":1,
 		"nr_slots":10,
 		"fechada":false
+	},
+	{
+		"nome":"Sala 2",
+		"andar":2,
+		"nr_slots":8,
+		"fechada":false
+	},
+	{
+		"nome":"Sala 3",
+		"andar":3,
+		"nr_slots":12,
+		"fechada":false
 	}
 ];
 
@@ -45,7 +56,7 @@ var reservas =
 	[
       {
       	"sala":"Sala 1",
-      	"data":"2018-06-01",
+      	"data":"2018-06-03",
       	"begin":"10:00",
       	"end":"12:00",
       	"slot": [1,2],
@@ -56,7 +67,7 @@ var reservas =
       },
 	    {
       	"sala":"Sala 1",
-      	"data":"2018-06-01",
+      	"data":"2018-06-04",
       	"begin":"15:00",
       	"end":"16:00",
       	"slot": [2],
@@ -67,7 +78,7 @@ var reservas =
       },
 	    {
      		"sala":"Sala 1",
-     		"data":"2018-06-01",
+     		"data":"2018-06-05",
      		"begin":"11:00",
   	 		"end":"12:00",
       	"slot": [4],
@@ -78,7 +89,7 @@ var reservas =
      	},
 	    {
       	"sala":"Sala 1",
-      	"data":"2018-06-01",
+      	"data":"2018-06-06",
       	"begin":"11:00",
       	"end":"12:00",
       	"slot": [1],
@@ -89,7 +100,7 @@ var reservas =
       },
 	    {
      		"sala":"Sala 1",
-     		"data":"2018-06-01",
+     		"data":"2018-06-07",
      		"begin":"10:00",
      		"end":"13:00",
      		"slot": [1],
@@ -107,6 +118,20 @@ var reservas =
       	"begin":"11:00",
       	"end":"12:00",
       	"slot": [1,2]
+      },
+      {
+      	"sala":"Sala 2",
+      	"data":"2018-06-01",
+      	"begin":"11:00",
+      	"end":"12:00",
+      	"slot": [3,4]
+      },
+      {
+      	"sala":"Sala 3",
+      	"data":"2018-06-01",
+      	"begin":"11:00",
+      	"end":"12:00",
+      	"slot": [5,6]
       }
 	]
 };

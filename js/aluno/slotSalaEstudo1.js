@@ -1,9 +1,25 @@
 var arraySlotsSelecionados=[];
+var arraySlotsSala2=[];
 
 $(document).ready(function(e)
 {
+	arraySlotsSala2=[];
 	var nrLugaresFila=8;
 	var nr_slots = salas[0].nr_slots;
+	reservas.prof.forEach(function(reserva,index)
+	{
+		if(reserva.sala === salaEstudo)
+		{
+			arraySlotsSala2.push({tipo:"prof",pos:index,slot:reserva.slot});
+		}
+	});
+	reservas.aluno.forEach(function(reserva,index)
+	{
+		if(reserva.sala === salaEstudo)
+		{
+			arraySlotsSala2.push({tipo:reserva.tipo,pos:index,slot:reserva.slot});
+		}
+	});	
 	for(var i=1;i<=nr_slots;i++)
 	{
 		var encontrou=false;
@@ -49,6 +65,7 @@ $(document).ready(function(e)
 							encontrou=true;
 							$("#slots").append("<button id=bSlot"+i+" class='btn btn-success bSlot' style=width:100px>Slot "+i+ "</button>");
 						}else if(!verificaColisoesDatas(dataEscolhida,hInicioEscolhida,hFimEscolhida,"aluno",pos)){
+
 							//A data é no futuro, e verifica conlisões
 							encontrou=true;
 							$("#slots").append("<button id=bSlot"+i+" class='btn btn-danger bSlot' style=width:100px>Slot "+i+ "</button>");
@@ -213,15 +230,13 @@ $(document).ready(function(e)
 
 function verificaColisoesDatas(dataEscolhida,hInicioEscolhida,hFimEscolhida,tipo,pos)
 {
-
-
 		if(reservas[tipo][pos].data === dataEscolhida)
 		{
-			if(reservas[tipo][pos].begin >= hInicioEscolhida && reservas[tipo][pos].begin <= hFimEscolhida)
+			if(hInicioEscolhida <= reservas[tipo][pos].begin && hFimEscolhida >= reservas[tipo][pos].begin)
 			{
 				return false;
 			}
-			if(reservas[tipo][pos].end >= hInicioEscolhida && reservas[tipo][pos].end <= hFimEscolhida)
+			if(hInicioEscolhida >= reservas[tipo][pos].begin && hInicioEscolhida <= reservas[tipo][pos].end)
 			{
 				return false;
 			}

@@ -110,26 +110,12 @@ $(document).ready(function(){
 		if(valor==="rIndividual")
 	  {
 			guardarReservasInd(reservas);
-			if($("#selectBoxSala option:selected").text()==="Sala 1")
-			{
-				load("html/aluno/slotSalaEstudo1.html");
-			}
-			else
-			{
-				alert("Sala indisponível");
-			}
+			load("html/aluno/slotSalaEstudo1.html");
 		}
 		else if(valor==="rGrupo")
 		{
 			guardarReservasGrupo(reservas);	
-			if($("#selectBoxSala option:selected").text()==="Sala 1")
-			{
-				load("html/aluno/slotSalaEstudo1.html");
-			}
-			else
-			{
-				alert("Sala indisponível");
-			}
+			load("html/aluno/slotSalaEstudo1.html");
 		}
 	});
 

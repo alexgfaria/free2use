@@ -116,8 +116,8 @@ function addReservaProf(sala,data,begin,end,slot){
     "end":end,
     "slot":slot
   });
-	var indiceProf=prof.length-1;
-	arraySlotsSala2.push({tipo:"prof",pos:indiceProf,slot:slot});
+//	var indiceProf=prof.length-1;
+//	arraySlotsSala2.push({tipo:"prof",pos:indiceProf,slot:slot});
 	
 }
 
