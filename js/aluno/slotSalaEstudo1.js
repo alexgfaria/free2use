@@ -30,7 +30,7 @@ $(document).ready(function(e)
 		}
 		for(var j=0;j<arraySlotsSala2.length;j++)
 		{
-			if(arraySlotsSala2[j].slot.includes(i))
+			if(arraySlotsSala2[j].slot.includes(""+i))
 			{
 				if(arraySlotsSala2[j].tipo==="prof")
 				{
