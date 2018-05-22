@@ -5,21 +5,22 @@ $(document).ready(function(e)
 {
 	arraySlotsSala2=[];
 	var nrLugaresFila=8;
-	var nr_slots = salas[0].nr_slots;
+	var nr_slots = salas[indiceSala].nr_slots;
 	reservas.prof.forEach(function(reserva,index)
 	{
-		if(reserva.sala === salaEstudo)
+		if(reserva.sala === salaEstudo && reserva.data === data && reserva.slot != [])
 		{
 			arraySlotsSala2.push({tipo:"prof",pos:index,slot:reserva.slot});
 		}
 	});
 	reservas.aluno.forEach(function(reserva,index)
 	{
-		if(reserva.sala === salaEstudo)
+		if(reserva.sala === salaEstudo && reserva.data === data && reserva.slot != [])
 		{
 			arraySlotsSala2.push({tipo:reserva.tipo,pos:index,slot:reserva.slot});
 		}
 	});	
+	console.log(arraySlotsSala2);
 	for(var i=1;i<=nr_slots;i++)
 	{
 		var encontrou=false;
@@ -30,7 +31,7 @@ $(document).ready(function(e)
 		}
 		for(var j=0;j<arraySlotsSala2.length;j++)
 		{
-			if(arraySlotsSala2[j].slot.includes(""+i))
+			if(arraySlotsSala2[j].slot.includes(""+i) || arraySlotsSala2[j].slot.includes(i))
 			{
 				if(arraySlotsSala2[j].tipo==="prof")
 				{

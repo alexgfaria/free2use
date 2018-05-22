@@ -1,6 +1,7 @@
 var i=0;
 var indiceReserva=0;
 var nrElementosGrupo=0;
+var indiceSala;
 function preencheSelectList(id,nrVezes,data)
 {
 	var i=0;
@@ -32,6 +33,7 @@ function preencheSelectList(id,nrVezes,data)
 function guardarReservasInd(array)
 {
 	salaEstudo=$("#selectBoxSala option:selected").text();
+	indiceSala=parseInt($("#selectBoxSala option:selected").val());
 
 	data=$("#selectBoxAno option:selected").text()+"-"+$("#selectBoxMes option:selected").text()+
 	"-"+$("#selectBoxDia option:selected").text();
@@ -47,6 +49,7 @@ function guardarReservasInd(array)
 function guardarReservasGrupo(array)
 {
 	salaEstudo=$("#selectBoxSala option:selected").text();
+	indiceSala=parseInt($("#selectBoxSala option:selected").val());	
 
 	data=$("#selectBoxAno option:selected").text()+"-"+$("#selectBoxMes option:selected").text()+
 	"-"+$("#selectBoxDia option:selected").text();
