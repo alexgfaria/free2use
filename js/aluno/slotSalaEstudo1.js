@@ -20,7 +20,6 @@ $(document).ready(function(e)
 			arraySlotsSala2.push({tipo:reserva.tipo,pos:index,slot:reserva.slot});
 		}
 	});	
-	console.log(arraySlotsSala2);
 	for(var i=1;i<=nr_slots;i++)
 	{
 		var encontrou=false;

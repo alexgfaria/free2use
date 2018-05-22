@@ -32,7 +32,7 @@ var salas =
 	{
 		"nome":"Sala 1",
 		"andar":1,
-		"nr_slots":10,
+		"nr_slots":24,
 		"fechada":false
 	},
 	{
@@ -44,7 +44,7 @@ var salas =
 	{
 		"nome":"Sala 3",
 		"andar":3,
-		"nr_slots":12,
+		"nr_slots":24,
 		"fechada":false
 	}
 ];
